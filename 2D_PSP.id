@@ -1,0 +1,110 @@
+{ Uses files:
+                 'PSP_1B.d'
+                 'PSPbi_1B.d'
+}
+
+procedure CommonParameters;
+begin
+{ms, mV}  {EPSP at apical dendr. of pyramid of CA1 at Vm=Vrest=-63 mV
+with blocked NMDA - by D-AP5(40mkM), also saclofen(100mkM)}
+{Stimulus: 65mkA, 100mks, Schaffer colls.}
+{[S.Karnup,A.Stelzer]}
+NSmpls:=2;
+{ Ohm's law }
+HH_type:='Passive';    HH_order:='2-points';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:=0;
+Qns:=20 {Hz};
+t0s:={0.00078+0.0005}0{s};   ts:=0.001{s};  Iext:=200 {mkA};
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=0.001{V};  shift_Smp:=3 {ms};
+t_end:=0.100;
+dt:=0.00005;
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=0;
+IfBlockNMDA:=0;   IfBlockGABB:=0;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=2;  i3:=1;
+Vrest[3]:=-0.063;
+gam[1]:=2000;  gam[2]:=5000;
+Nts:=100;
+  if KeepParams=0 then begin
+     {AMPA}
+     alAMPA[1]:=185;     beAMPA[1]:=185;
+     alAMPA[2]:=340;     beAMPA[2]:=340;
+     VAMPA:=-0.00 {V};
+     {GABA}
+     alGABA[1]:={34}120;      beGABA[1]:={320}5200;
+     alGABA[2]:={34}120;      beGABA[2]:={320}5200;
+     {GABB}
+     alGABB[1]:=7;       beGABB[1]:=7;
+     alGABB[2]:=7;       beGABB[2]:=7;
+     {NMDA}
+     alNMDA[1]:=10 {1/s};     beNMDA[1]:=125 {1/s};
+     alNMDA[2]:=10 {1/s};     beNMDA[2]:=125 {1/s};
+     VNMDA:=-0.000 {V};
+     Mg:=1.3 {mM};
+     gAMP3[1]:=1;        gAMP3[2]:=0;
+     gNMD3[1]:=20;       gNMD3[2]:=0;
+     gGAB3[1]:=0;        gGAB3[2]:=0;
+     gAMPA[1]:=2;        gAMPA[2]:=5;
+     gNMDA[1]:=10;       gNMDA[2]:=0;
+     gGABA[1]:=5;        gGABA[2]:=0;
+     gGABB[1]:=0;        gGABB[2]:=0;
+     {AP}
+     sigmaAP:=0.2;
+     gAHP[1]:=0.3; {!}
+     ThrCorrection[1]:=-0.000 {V};
+     ThrCorrection[2]:=-0.000 {V};
+     KeepParams:=1;
+
+     Iext:=700 {mkA};
+     Qns:=0 {Hz};
+     gAMPA[1]:=10;
+     gNMDA[1]:=40;       gNMDA[2]:=40;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{control}
+  SmplFile[Smpl]:='PSP_1A.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile2;
+begin
+{blocked GABAa by PTX}
+  SmplFile[Smpl]:='PTX_1A.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin
+end;
+
+procedure ParametersFromFile5;
+begin
+end;
+
+procedure ParametersFromFile6;
+begin
+end;
+
+procedure ParametersFromFile7;
+begin
+end;
+
+procedure ParametersFromFile8;
+begin
+end;
+
+procedure ParametersFromFile9;
+begin
+end;

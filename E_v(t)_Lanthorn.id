@@ -1,0 +1,53 @@
+{ Uses files:
+                 'v1(I).d', ... 'v5(I).d', 'v_st(I).d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=1;
+{ Ohm's law }
+HH_type:='Passive';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+Iind:= 100{pA};  t_Iind:=0.100 {s};
+Iext:=0{mkA};
+t_Exp:=0.0;
+t_end:=0.100;
+dt:=0.00005;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Blockade }
+IfBlockAMPA:=1;   IfBlockGABA:=1;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=3;  i3:=1;
+CalcExpFiringRateForPyramid(Iind/1000);
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=1{Hz};
+  if KeepParams=0 then begin
+//     Square[2]:=2.72e-5;
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{ms, Hz}   {Firing rate when current is induced}
+{[CA1, Lancheon, pyramids]}
+CommonParameters;
+sc_Simplex:=100 {Hz};
+  SmplFile[Smpl]:='nu(t).dat';
+end;
+
+procedure ParametersFromFile2;
+begin
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin end;
+

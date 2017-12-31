@@ -1,0 +1,245 @@
+{
+[Cruikshank SJ, Lewis TJ, Connors BW.
+Synaptic basis for intense thalamocortical activation of
+feedforward inhibitory cells in neocortex.
+// Nat Neurosci. 2007 Apr;10(4):462-8.]
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=10;
+i3:=1;
+{ Ohm's law }
+HH_type[1]:='Passive';  HH_order[1]:='2-points';
+HH_type[2]:='Passive';  HH_order[2]:='2-points';
+HodgkinPhysParameters;
+{ Input}
+pext_Iext:=24 {Hz/muA};
+Iext:=120;//129,69{muA};
+t0s:=0.0018;{s}
+t_ind:=0.500;
+t_end:=0.020;
+dt:=0.000025;
+Nts:=50;
+ts_end:=0.05;
+{ Neuron properties }
+C_membr[1]:=0.0007 {mF/cm^2};
+Square[1]:=10e-5 {cm^2}; if HH_order[1]='2-points' then Square[1]:=6.7e-5{cm^2};
+Square[2]:=11e-5 {cm^2}; if HH_order[2]='2-points' then Square[2]:=7.4e-5{cm^2};
+Vrest[1]:=-0.079;
+Vrest[2]:=-0.078;
+Vrest[3]:=-0.035;
+tau_m[1]:= 0.028;
+tau_m[2]:= 0.009;
+Form4.SpecCond.ItemIndex:=0; {Form4.SpecCond.Items[0]='FixThreshold=14mV'}
+ThrCorrection[1]:= 0.0066; {+14mV}
+ThrCorrection[2]:= 0;//0.0106; {+14mV}
+sgm_V[1]:=0.002;         sgm_V[2]:=0.002;
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=0;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Synapses }
+gAMP3[1]:=0.018;        gAMP3[2]:=0.035;
+gAMPA[1]:=0;            gAMPA[2]:=0;
+gGABA[1]:=0.2;          gGABA[2]:=0.15;
+if HH_order[1]='2-points' then begin
+   gAMP3[1]:=0.02;                   {Table 1}
+end;
+if HH_order[2]='2-points' then begin
+   gAMP3[2]:=0.15;                   {Table 1}
+end;
+gSyn_From_i3;
+alAMPA[1]:=500; beAMPA[1]:= 500;  alAMPA[2]:=300; beAMPA[2]:=10000; VAMPA:=0;
+alGABA[1]:=200; beGABA[1]:=2000;  alGABA[2]:=200; beGABA[2]:=2000;  VGABA:=-0.091;
+IfInSyn_al_EQ_beta:=0;
+IfSigmoidForPresynRate:=0;
+factorI:=0;
+factorE:=0;
+{ Clamping }
+IfChangeVrest:=1;
+{ Samples - experimental curves }
+  if KeepParams=0 then begin
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+  Iext:=120{muA};
+  if i3<>1 then begin
+     i3:=1;  gSyn_From_i3;
+  end;
+  if HH_order[1]='2-points' then begin
+     gAMP3[3]:=0.02;    {Fit to this Fig2}
+     gGABA[3]:=0.15;
+  end;
+  If_I_V_or_p:=1;
+  scy_Smpl:=-1;
+  Vrest[3]:=-0.088;{V}
+  SmplFile[Smpl]:='Cruikshank2007_Fig2b_Isyn_-88mV.d';
+end;
+
+procedure ParametersFromFile2;
+begin
+  Iext:=120{muA};
+  if i3<>1 then begin
+     i3:=1;  gSyn_From_i3;
+  end;
+  if HH_order[1]='2-points' then begin
+     gAMP3[3]:=0.02;    {Fit to this Fig2}
+     gGABA[3]:=0.15;
+  end;
+  If_I_V_or_p:=1;
+  scy_Smpl:=-1;
+  Vrest[3]:=-0.062;{V}
+  SmplFile[Smpl]:='Cruikshank2007_Fig2b_Isyn_-62mV.d';
+end;
+
+procedure ParametersFromFile3;
+begin
+  Iext:=120{muA};
+  if i3<>1 then begin
+     i3:=1;  gSyn_From_i3;
+  end;
+  if HH_order[1]='2-points' then begin
+     gAMP3[3]:=0.02;    {Fit to this Fig2}
+     gGABA[3]:=0.15;
+  end;
+  If_I_V_or_p:=1;
+  scy_Smpl:=-1;
+  Vrest[3]:=-0.035;{V}
+  SmplFile[Smpl]:='Cruikshank2007_Fig2b_Isyn_-35mV.d';
+end;
+
+procedure ParametersFromFile4;
+begin
+  Iext:=120{muA};
+  if i3<>2 then begin
+     i3:=2;  gSyn_From_i3;
+  end;
+  if HH_order[2]='2-points' then begin
+     gAMP3[3]:=0.06;    {Fit to this Fig2}
+  end;
+  If_I_V_or_p:=1;
+  scy_Smpl:=-1;
+  Vrest[3]:=-0.088;{V}
+  SmplFile[Smpl]:='Cruikshank2007_Fig2a_Isyn_-88mV.d';
+end;
+
+procedure ParametersFromFile5;
+begin
+  Iext:=120{muA};
+  if i3<>2 then begin
+     i3:=2;  gSyn_From_i3;
+  end;
+  if HH_order[2]='2-points' then begin
+     gAMP3[3]:=0.06;    {Fit to this Fig2}
+  end;
+  If_I_V_or_p:=1;
+  scy_Smpl:=-1;
+  Vrest[3]:=-0.062;{V}
+  SmplFile[Smpl]:='Cruikshank2007_Fig2a_Isyn_-62mV.d';
+end;
+
+procedure ParametersFromFile6;
+begin
+  Iext:=120{muA};
+  if i3<>2 then begin
+     i3:=2;  gSyn_From_i3;
+  end;
+  if HH_order[2]='2-points' then begin
+     gAMP3[3]:=0.06;    {Fit to this Fig2}
+  end;
+  If_I_V_or_p:=1;
+  scy_Smpl:=-1;
+  Vrest[3]:=-0.035;{V}
+  SmplFile[Smpl]:='Cruikshank2007_Fig2a_Isyn_-35mV.d';
+end;
+
+procedure ParametersFromFile7;
+begin
+  Iext:=120{muA};
+  if i3<>1 then begin
+     i3:=1;  gSyn_From_i3;
+  end;
+  if HH_order[2]='2-points' then begin
+     gAMP3[3]:=0.01;    {Fit to this Fig1e}
+  end;
+  If_I_V_or_p:=2;
+  scy_Smpl:=0.001;
+  Vrest[3]:=-0.079;{V}
+  SmplFile[Smpl]:='Cruikshank2007_Fig1e_PSP_RS.d';
+end;
+
+procedure ParametersFromFile8;
+begin
+  Iext:=120{muA};
+  if i3<>2 then begin
+     i3:=2;  gSyn_From_i3;
+  end;
+  if HH_order[2]='2-points' then begin
+     gAMP3[3]:=0.06;    {Fit to Fig2}
+  end;
+  If_I_V_or_p:=2;
+  scy_Smpl:=0.001;
+  Vrest[3]:=-0.079;{V}
+  SmplFile[Smpl]:='Cruikshank2007_Fig1e_PSP_FS.d';
+end;
+
+procedure ParametersFromFile9;
+begin
+  Iext:=30{muA};
+  if i3<>1 then begin
+     i3:=1;  gSyn_From_i3;
+  end;
+  if HH_order[1]='2-points' then begin
+     gAMP3[3]:=0.008;   {Fit to this trace}
+  end;
+  If_I_V_or_p:=1;
+  scy_Smpl:=-1;
+  Vrest[3]:=-0.089;{V}
+  SmplFile[Smpl]:='Cruikshank2007_Fig3c_miniPSC_RS.d';
+end;
+
+procedure ParametersFromFile10;
+begin
+  Iext:=30{muA};
+  if i3<>2 then begin
+     i3:=2;  gSyn_From_i3;
+  end;
+  if HH_order[2]='2-points' then begin
+     gAMP3[3]:=0.06;    {Fit to this trace and Fig.2}
+  end;
+  If_I_V_or_p:=1;
+  scy_Smpl:=-1;
+  Vrest[3]:=-0.089;{V}
+  SmplFile[Smpl]:='Cruikshank2007_Fig3c_miniPSC_FS.d';
+end;
+
+procedure ParametersFromFile11;
+begin end;
+
+procedure ParametersFromFile12;
+begin end;
+
+procedure ParametersFromFile13;
+begin end;
+
+procedure ParametersFromFile14;
+begin end;
+
+procedure ParametersFromFile15;
+begin end;
+
+procedure ParametersFromFile16;
+begin end;
+
+procedure ParametersFromFile17;
+begin end;
+
+procedure ParametersFromFile18;
+begin end;
+
+procedure ParametersFromFile19;
+begin end;
+

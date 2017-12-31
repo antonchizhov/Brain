@@ -1,0 +1,119 @@
+{ Uses files:
+                 'I_v(t)_Ali_04.d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=3;
+i3:=1;
+{ Ohm's law }
+NP0[1].HH_type:='Lyle';  NP0[1].HH_order:='1-point';
+HodgkinPhysParameters(NP0[1]);
+     Form4.SpecCond.ItemIndex:=0;         {'FixThreshold=10mV'}
+     NP0[1].gK:=0;
+     NP0[1].gKA:=0;
+     NP0[1].gKD:=0;
+     NP0[1].gH:=0;
+     NP0[1].Vreset:=-0.0751;
+     NP0[1].dT_AP:=0.00001;
+     Nts:=400;
+     ts_end:=0.400;
+     n_Write:=2;
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:=500 {pA};
+t_ind:=10.200 {s};
+Iext:=0{mkA};
+t_Exp:=0.0;
+t_end:=0.100;
+dt:=0.0001;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Blockade }
+IfBlockAMPA:=1;   IfBlockGABA:=1;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; NP0[3].If_I_V_or_g:=3;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=1{Hz};
+  if KeepParams=0 then begin
+     KeepParams:=1;
+//     gKM[1]:=0;
+//     gAHP[1]:=0.6;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+  SmplFile[Smpl]:='NoFile';
+end;
+
+procedure ParametersFromFile2;
+begin
+  I_ind:=150 {pA};
+  SmplFile[Smpl]:='NoFile';
+end;
+
+procedure ParametersFromFile3;
+begin
+  {ms, nA}   {[Mainen 1995], Noise-like input current}
+  t_end:=1.000;
+  Form4.CheckBox17.Checked:=true;
+  SmplFile[Smpl]:='Fig1B_Mainen1995.d';
+end;
+
+procedure ParametersFromFile4;
+begin
+end;
+
+procedure ParametersFromFile5;
+begin
+end;
+
+procedure ParametersFromFile6;
+begin
+end;
+
+procedure ParametersFromFile7;
+begin
+end;
+
+procedure ParametersFromFile8;
+begin
+end;
+
+procedure ParametersFromFile9;
+begin
+end;
+
+procedure ParametersFromFile10;
+begin end;
+
+procedure ParametersFromFile11;
+begin end;
+
+procedure ParametersFromFile12;
+begin end;
+
+procedure ParametersFromFile13;
+begin end;
+
+procedure ParametersFromFile14;
+begin end;
+
+procedure ParametersFromFile15;
+begin end;
+
+procedure ParametersFromFile16;
+begin end;
+
+procedure ParametersFromFile17;
+begin end;
+
+procedure ParametersFromFile18;
+begin end;
+
+procedure ParametersFromFile19;
+begin end;
+

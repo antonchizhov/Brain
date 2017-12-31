@@ -1,0 +1,97 @@
+object Form27: TForm27
+  Left = 522
+  Top = 720
+  Width = 433
+  Height = 293
+  AutoSize = True
+  Caption = 'Form27-Lognorm'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 120
+  TextHeight = 16
+  object Chart1: TChart
+    Left = 0
+    Top = 0
+    Width = 425
+    Height = 258
+    BackWall.Brush.Color = clWhite
+    BackWall.Brush.Style = bsClear
+    Title.Text.Strings = (
+      'TChart')
+    Title.Visible = False
+    BottomAxis.Automatic = False
+    BottomAxis.AutomaticMinimum = False
+    BottomAxis.Title.Caption = 'x'
+    LeftAxis.Automatic = False
+    LeftAxis.AutomaticMinimum = False
+    LeftAxis.Title.Caption = 'phi'
+    Legend.Alignment = laTop
+    Legend.ColorWidth = 50
+    Legend.LegendStyle = lsSeries
+    Legend.ResizeChart = False
+    Legend.ShadowSize = 0
+    Legend.TopPos = 45
+    Legend.VertMargin = 1
+    View3D = False
+    Color = 7907192
+    TabOrder = 0
+    object Button1: TButton
+      Left = 345
+      Top = 240
+      Width = 73
+      Height = 17
+      Caption = 'WriteInFile'
+      TabOrder = 0
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 270
+      Top = 240
+      Width = 75
+      Height = 17
+      Caption = 'Draw'
+      TabOrder = 1
+      OnClick = Button2Click
+    end
+    object Series1: TLineSeries
+      Marks.ArrowLength = 8
+      Marks.Visible = False
+      SeriesColor = clRed
+      Title = 'phi*dx'
+      LinePen.Width = 2
+      Pointer.InflateMargins = True
+      Pointer.Style = psCircle
+      Pointer.Visible = True
+      XValues.DateTime = False
+      XValues.Name = 'X'
+      XValues.Multiplier = 1.000000000000000000
+      XValues.Order = loAscending
+      YValues.DateTime = False
+      YValues.Name = 'Y'
+      YValues.Multiplier = 1.000000000000000000
+      YValues.Order = loNone
+    end
+    object Series2: TLineSeries
+      Marks.ArrowLength = 8
+      Marks.Visible = False
+      SeriesColor = clGreen
+      Title = 'phi'
+      Pointer.InflateMargins = True
+      Pointer.Style = psRectangle
+      Pointer.Visible = False
+      XValues.DateTime = False
+      XValues.Name = 'X'
+      XValues.Multiplier = 1.000000000000000000
+      XValues.Order = loAscending
+      YValues.DateTime = False
+      YValues.Name = 'Y'
+      YValues.Multiplier = 1.000000000000000000
+      YValues.Order = loNone
+    end
+  end
+end

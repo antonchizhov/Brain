@@ -1,0 +1,68 @@
+{ Uses files:
+                 'I_v(t)_basket.d' or 'I_v(t)_SCA.d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=1;
+{ Ohm's law }
+HH_type[2]:='Migliore';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:= 150{pA};  t_ind:=0.100 {s};
+Iext:=0{mkA};
+t_Exp:=0.0;
+t_end:=0.100;
+dt:=0.00005;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Blockade }
+IfBlockAMPA:=1;   IfBlockGABA:=1;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=3;  i3:=2;
+Vrest[3]:=-0.060;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=1000{Hz};
+  if KeepParams=0 then begin
+//     Square[2]:=2.72e-5;
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{ms, pA}   {IPSC at Vh=  ...  (CNQX,APV)}
+{[CA1, D.W.Cope, basket and Schaffer collateral-associated cells]}
+CommonParameters;
+sc_Simplex:=100 {Hz};
+  SmplFile[Smpl]:='I_v(t)_SCA.d';
+end;
+
+procedure ParametersFromFile2;
+begin
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin end;
+
+procedure ParametersFromFile5;
+begin end;
+
+procedure ParametersFromFile6;
+begin end;
+
+procedure ParametersFromFile7;
+begin end;
+
+procedure ParametersFromFile8;
+begin end;
+
+procedure ParametersFromFile9;
+begin end;
+

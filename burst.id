@@ -1,0 +1,115 @@
+{ Uses files:
+                 'PSP_1B.d'
+                 'PSPbi_1B.d'
+}
+
+procedure CommonParameters;
+begin
+{ms, mV}  {EPSP at apical dendr. of pyramid of CA1 at Vm=Vrest=-63 mV
+with blocked NMDA - by D-AP5(40mkM), also saclofen(100mkM)}
+{Stimulus: 65mkA, 100mks, Schaffer colls.}
+{[S.Karnup,A.Stelzer]}
+NSmpls:=1;
+{ Ohm's law }
+HH_type[1]:='Migliore';    HH_order[1]:='2-points';
+HH_type[2]:='Chow';        HH_order[2]:='1-point';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:=15 {pA}; t_ind:=1.100 {s};
+Qns:=0 {Hz};
+Iext:=0 {mkA};
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=0.001{V};  shift_Smp:=0 {ms};
+t_end:=0.300;
+dt:=0.000025;
+{ Blockade }
+IfBlockAMPA:=1;   IfBlockGABA:=1;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=2;  i3:=1;
+Vrest[3]:=-0.064;
+  if KeepParams=0 then begin
+     {AP}
+     sigmaAP:=0.2;
+     gAHP[1]:=0.0; {!}
+     gK[1]:=40;
+     tau_Bst:=20 {ms};
+     gBst[1]:=0.5;
+
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{control}
+  SmplFile[Smpl]:='PSP_1A.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile2;
+begin
+{blocked GABAa by PTX}
+  SmplFile[Smpl]:='PTX_1A.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin
+end;
+
+procedure ParametersFromFile5;
+begin
+end;
+
+procedure ParametersFromFile6;
+begin
+end;
+
+procedure ParametersFromFile7;
+begin
+end;
+
+procedure ParametersFromFile8;
+begin
+end;
+
+procedure ParametersFromFile9;
+begin
+end;
+
+procedure ParametersFromFile10;
+begin end;
+
+procedure ParametersFromFile11;
+begin end;
+
+procedure ParametersFromFile12;
+begin end;
+
+procedure ParametersFromFile13;
+begin end;
+
+procedure ParametersFromFile14;
+begin end;
+
+procedure ParametersFromFile15;
+begin end;
+
+procedure ParametersFromFile16;
+begin end;
+
+procedure ParametersFromFile17;
+begin end;
+
+procedure ParametersFromFile18;
+begin end;
+
+procedure ParametersFromFile19;
+begin end;
+

@@ -1,0 +1,89 @@
+{ Uses files:
+                 'I_AMPA+20.d'
+                 'I_AMPA-40.d'
+                 'I_AMPA-80.d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=3;
+{ Ohm's law }
+HH_type:='Passive';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=1;
+{ Input}
+I_ind:=0;
+t0s:=0.001{s};  ts:=0.001{80e-6}{s};
+Iext:=120{mkA};
+t_Exp:=0.0;
+t_end:=0.050;
+dt:=0.00005;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=1; i3:=2;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=-1{pA};
+  if KeepParams=0 then begin
+     Square[2]:=4.8e-5;
+     gAMP3[2]:=2.06;
+     gNMD3[2]:=0;
+     gAMPA[2]:=0;
+     alAMPA[2]:=341;
+     beAMPA[2]:=341;
+     VAMPA:=0;
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{ms, pA}   {AMPA-EPSC at Vh=+20mV (PTX,APV)}
+{[CA1, Hestrin et al., Fig.3]}
+CommonParameters;
+{ Clamping }
+Vrest[3]:=+0.020;
+  SmplFile[Smpl]:='I_AMPA+20.d';
+end;
+
+procedure ParametersFromFile2;
+begin
+{ms, pA}   {AMPA-EPSC at Vh=-40mV (PTX,APV)}
+{[CA1, Hestrin et al., Fig.3]}
+CommonParameters;
+{ Clamping }
+Vrest[3]:=-0.040;
+  SmplFile[Smpl]:='I_AMPA-40.d';
+end;
+
+procedure ParametersFromFile3;
+begin
+{ms, pA}   {AMPA-EPSC at Vh=-80mV (PTX,APV)}
+{[CA1, Hestrin et al., Fig.3]}
+CommonParameters;
+{ Clamping }
+Vrest[3]:=-0.080;
+  SmplFile[Smpl]:='I_AMPA-80.d';
+end;
+
+procedure ParametersFromFile4;
+begin end;
+
+procedure ParametersFromFile5;
+begin end;
+
+procedure ParametersFromFile6;
+begin end;
+
+procedure ParametersFromFile7;
+begin end;
+
+procedure ParametersFromFile8;
+begin end;
+
+procedure ParametersFromFile9;
+begin end;
+

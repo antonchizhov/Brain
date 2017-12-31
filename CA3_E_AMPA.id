@@ -1,0 +1,89 @@
+{ Uses files:
+                 'CA3_AMPA.d'
+                 'CA3_polyAMPA.d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=2;
+{ Ohm's law }
+HH_type:='Passive';
+{ Input}
+I_ind:=0;
+t0s:=0.000{s};  ts:=0.001{80e-6}{s};
+t_Exp:=0.0;
+t_end:=0.050;
+dt:=0.00005;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=1;  i3:=1;
+Vrest[3]:=-0.080;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=-1{pA};
+  if KeepParams=0 then begin
+     IfInSyn_al_EQ_beta:=1;
+     gAMP3[1]:={1.9}1.7;
+     gAMPA[1]:={0.7}0.9;
+     alAMPA[1]:={700}300;
+     beAMPA[1]:={150}300;
+     gAHP[1]:=1;
+     VAMPA:=-0.00 {V};
+     Square[1]:=2.72e-5;
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{ms, pA}   {AMPA-EPSC at Vh=-80mV (bic,PTX,APV), stim. mossy-fiber}
+{[CA3, Xiang and Brown]}
+CommonParameters;
+sc_Simplex:=70 {pA};
+shift_Smp:=-0.000;
+Iext:=120{mkA};
+  SmplFile[Smpl]:='CA3_AMPA.d';
+end;
+
+procedure ParametersFromFile2;
+begin
+{ms, pA}   {polyAMPA-EPSC at Vh=-80mV (bic,PTX,APV), stim. mossy-fiber}
+{[CA3, Xiang and Brown]}
+CommonParameters;
+sc_Simplex:=70 {pA};
+shift_Smp:=-0.5 {ms};
+Iext:=350{mkA};
+  SmplFile[Smpl]:='CA3_polyAMPA.d';
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin
+end;
+
+procedure ParametersFromFile5;
+begin
+end;
+
+procedure ParametersFromFile6;
+begin
+end;
+
+procedure ParametersFromFile7;
+begin
+end;
+
+procedure ParametersFromFile8;
+begin
+end;
+
+procedure ParametersFromFile9;
+begin
+end;
+

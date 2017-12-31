@@ -1,0 +1,143 @@
+{ Uses files:
+}
+
+procedure _EX_CommonParameters;
+begin
+  Form1.Left:=2000+Form1.Left;
+  //Form2.Visible:=false;
+  Form4.Visible:=false;
+  Form12.Visible:=false;
+  Form1.Phasespace1.Checked:=false;
+  Form15.Visible:=false;
+  Form10.Visible:=true;
+  Form10.Button4.Caption:='Show detailed information';
+  Form4.CheckBox11.Checked:=false; //Background
+  Form4.CheckBox20.Checked:=false;  //Noise
+  Form10.CheckBox7.Checked:=false;  //Noise
+  Form1.Rose1.Checked:=false; IfRose:=0;
+  NSmpls:=1;
+  i3:=1;
+  NPop:=2;
+{ Ohm's law }
+NP0[1].HH_type:='Lyle';     NP0[1].HH_order:='1-point';
+                            NP0[2].HH_order:='1-point';
+HodgkinPhysParameters(NP0[1]);
+{ Input}
+IfExtracellOrThalamOrVisualOrLGN_Stimul:=2; //Thalamic means Shaffer coll.
+pext_Iext:=24 {Hz/muA};
+Iext:=5{mkA};
+t_end:=0.100;
+dt:=0.0001;
+Nts[1]:=100;
+ts_end[1]:=0.1;
+{ Neuron properties }
+Form4.ComboBox8.ItemIndex:=0;         {'FixThreshold=10mV'}
+Form4.ComboBox9.ItemIndex:=0;         {'FixThreshold=10mV'}
+NP0[1].ThrShift:= 0.002;
+NP0[2].ThrShift:=-0.002;
+NP0[3].ThrShift:=-0.002;
+sgm_V[1]:=0.002;         sgm_V[2]:=0.002;
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=0;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Synapses }
+{*****************}
+   Form4.gSynC1.Visible:=true;
+   If_Binzegger_V1:=0;
+{*****************}
+gAMP3[1]:=0.05;{0.015}    gAMP3[2]:=0.1;{0.3}
+gGAB3[1]:=0.3*0;
+gNMD3[1]:=0.2;            gNMD3[2]:=0.2;
+gAMPA[1]:=0.1;            gAMPA[2]:=0.5;
+gGABA[1]:=1;{0.1}         gGABA[2]:=1; {0.1}
+gGABB[1]:=0.1;            gGABB[2]:=0.1;
+alAMPA[1]:=120; beAMPA[1]:= 600;  alAMPA[2]:=180; beAMPA[2]:=2000; VAMPA:=0.005;
+alNMDA[1]:= 67; beNMDA[1]:= 36;   alNMDA[2]:= 67; beNMDA[2]:= 36;  NP0[1].VNMDA:=0.005;
+alGABA[1]:= 50; beGABA[1]:=2000;  alGABA[2]:= 50; beGABA[2]:=2000; VGABA:=-0.075;
+IfInSyn_al_EQ_beta:=0;
+IfSigmoidForPresynRate:=1;
+factorAMPA:=0;
+factorNMDA:=0;
+factorGABA:=0;
+Form4.DDSpinEdit90.Enabled:=false;
+{ Clamping }
+IfChangeVrest:=1;
+R.NP.Vrest:=NP0[1].Vrest;
+  { 2-D ********************************************************** }
+  ni:=40;
+  R_stim:=4;
+  ni_stim:=1;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=1{Hz};
+  if KeepParams=0 then begin
+     KeepParams:=1;
+  end;
+end;
+
+procedure _EX_ParametersFromFile;
+begin
+  SmplFile[Smpl]:='NoFile';
+end;
+
+procedure _EX_ParametersFromFile2;
+begin
+end;
+
+procedure _EX_ParametersFromFile3;
+begin
+end;
+
+procedure _EX_ParametersFromFile4;
+begin
+end;
+
+procedure _EX_ParametersFromFile5;
+begin
+end;
+
+procedure _EX_ParametersFromFile6;
+begin
+end;
+
+procedure _EX_ParametersFromFile7;
+begin
+end;
+
+procedure _EX_ParametersFromFile8;
+begin
+end;
+
+procedure _EX_ParametersFromFile9;
+begin
+end;
+
+procedure _EX_ParametersFromFile10;
+begin end;
+
+procedure _EX_ParametersFromFile11;
+begin end;
+
+procedure _EX_ParametersFromFile12;
+begin end;
+
+procedure _EX_ParametersFromFile13;
+begin end;
+
+procedure _EX_ParametersFromFile14;
+begin end;
+
+procedure _EX_ParametersFromFile15;
+begin end;
+
+procedure _EX_ParametersFromFile16;
+begin end;
+
+procedure _EX_ParametersFromFile17;
+begin end;
+
+procedure _EX_ParametersFromFile18;
+begin end;
+
+procedure _EX_ParametersFromFile19;
+begin end;
+

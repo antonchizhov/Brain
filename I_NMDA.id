@@ -1,0 +1,81 @@
+{ Uses files:
+                 'I_NMDA+20.d'
+                 'I_NMDA-40.d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=2;
+{ Ohm's law }
+HH_type:='Passive';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:=0;
+t0s:=0.001{s};  ts:=0.001{80e-6}{s};
+Iext:=120{mkA};
+t_Exp:=0.0;
+t_end:=0.100;
+dt:=0.00005;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Blockade }
+IfBlockAMPA:=1;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=1;  i3:=2;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=-1{pA};
+  if KeepParams=0 then begin
+     Square[2]:=4.8e-5;
+     gNMDA[2]:=0;
+     gNMD3[2]:=92 {mS/cm^2};
+     alNMDA[2]:=8.1 {1/s};
+     beNMDA[2]:=117 {1/s};
+     VNMDA:=+0.007 {V};
+     Mg:=1.3 {mM};
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{ms, pA}   {NMDA-EPSC at Vh=+20mV (PTX,CNQX) in str.oriens interneuron}
+{[CA1, Hestrin et al., Fig.4]}
+CommonParameters;
+{ Clamping }
+Vrest[3]:=+0.020;
+  SmplFile[Smpl]:='I_NMDA+20.d';
+end;
+
+procedure ParametersFromFile2;
+begin
+{ms, pA}   {NMDA-EPSC at Vh=-40mV (PTX,CNQX) in str.oriens interneuron}
+{[CA1, Hestrin et al., Fig.4]}
+CommonParameters;
+{ Clamping }
+Vrest[3]:=-0.040;
+  SmplFile[Smpl]:='I_NMDA-40.d';
+end;
+
+procedure ParametersFromFile3;
+begin end;
+
+procedure ParametersFromFile4;
+begin end;
+
+procedure ParametersFromFile5;
+begin end;
+
+procedure ParametersFromFile6;
+begin end;
+
+procedure ParametersFromFile7;
+begin end;
+
+procedure ParametersFromFile8;
+begin end;
+
+procedure ParametersFromFile9;
+begin end;
+

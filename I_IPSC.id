@@ -1,0 +1,73 @@
+{ Uses files:
+                 'I_IPSC.d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=1;
+{ Ohm's law }
+HH_type:='Passive';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:=0;
+t0s:=0.001{s};  ts:=0.001{80e-6}{s};
+Iext:=120{mkA};
+t_Exp:=0.0;
+t_end:=0.050;
+dt:=0.00005;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Blockade }
+IfBlockAMPA:=1;   IfBlockGABA:=0;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=1;  i3:=2;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=-1{pA};
+  if KeepParams=0 then begin
+     gGABA[2]:=0;
+     gGAB3[2]:=43;
+     alGABA[2]:=63;
+     beGABA[2]:=63;
+     VGABA:=-0.00 {V};
+     Square[2]:=2.72e-5;
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{ms, pA}   {IPSC at Vh=  ...  (CNQX,APV)}
+{[CA1,Nishikawa et al.]}
+CommonParameters;
+{ Clamping }
+Vrest[3]:=-0.060;
+sc_Simplex:=200 {pA};
+  SmplFile[Smpl]:='I_IPSC.d';
+end;
+
+procedure ParametersFromFile2;
+begin end;
+
+procedure ParametersFromFile3;
+begin end;
+
+procedure ParametersFromFile4;
+begin end;
+
+procedure ParametersFromFile5;
+begin end;
+
+procedure ParametersFromFile6;
+begin end;
+
+procedure ParametersFromFile7;
+begin end;
+
+procedure ParametersFromFile8;
+begin end;
+
+procedure ParametersFromFile9;
+begin end;
+

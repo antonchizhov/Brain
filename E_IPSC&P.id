@@ -1,0 +1,84 @@
+{ Uses files:
+                 'IPSC_2d.d'
+                 'IPSP_2d.d'
+}
+
+procedure CommonParameters;
+var  Smpl_ :integer;
+begin
+NSmpls:=2;
+Smpl_:=Smpl;  if Smpl=0 then Smpl_:=1;
+{ Ohm's law }
+IfCalmar:=-1;
+{ Input}
+Im:=0;
+t0s:=0.001{s};  ts:=0.001{80e-6}{s};
+t_Exp:=0.0;
+t_end:=0.046;
+dt:=0.00005;
+{ Blockade }
+IfBlockAMPA:=1;   IfBlockGABA:=0;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+Vrest[1]:=-0.064;
+  if Smpl=0 then begin
+     {Stimul}
+     Iext:=120{mkA};
+     {GABA}
+     gGABA[1]:=0;
+     gGAB3[1]:=20.5;
+     alGABA:=34;
+     betaGABA:=313;
+     VGABA:=-0.080 {V};
+     { passive params }
+     Square[1]:=0.31e-4  {cm^2};
+     C_membr  := 0.001  {mF/cm^2};
+     tau_m[1] := 0.004{214} {mS/cm^2};
+  end;
+end;
+
+procedure ParametersFromFile;
+var  Smpl_ :integer;
+begin
+{ms, pA}   {IPSC at apical dendrite (150 mkm from str.pyr.)
+on CA1 pyramid at Vm=Vrest=-64 mV, with CNQX, D-AP5, saclofen}
+{Stimulus: 120mkA, 80mks in 500mkm from rec.electrode
+in str.radiatum, Schaffer colls.}
+{[S.Karnup,A.Stelzer]}
+CommonParameters;
+Smpl_:=Smpl;  if Smpl=0 then Smpl_:=1;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=-1{pA};
+{ Plot scales}
+I_sc:=1 {pA};
+{ Clamping }
+IfChangeVrest:=0; IfCurrent:=1;
+  SmplFile[Smpl_]:='IPSC_2d.d';
+end;
+
+
+procedure ParametersFromFile2;
+var  Smpl_ :integer;
+begin
+{ms, mV}   {IPSP at apical dendrite (150 mkm from str.pyr.) of pyramid of CA1
+at Vm=Vrest=-64 mV, with CNQX, D-AP5, saclofen}
+{Stimulus: 120mkA, 80mks in 500mkm from rec.electrode in str.radiatum,
+Schaffer colls.}{[S.Karnup,A.Stelzer]}
+CommonParameters;
+Smpl_:=Smpl;  if Smpl=0 then Smpl_:=1;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=0.001 {V};
+{ Plot scales}
+V_sc:=1000 {mV};
+{ Clamping }
+IfChangeVrest:=0; IfCurrent:=0;
+  SmplFile[Smpl_]:='IPSP_2d.d';
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin
+end;
+

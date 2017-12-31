@@ -1,0 +1,133 @@
+{ Uses files:
+                 'I_v(t)_Ali_04.d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=9;
+i3:=2;
+{ Ohm's law }
+HH_type[2]:='Chow';  HH_order[2]:='1-point';
+HodgkinPhysParameters;
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+t_ind:=0.200 {s};
+Iext:=0{mkA};
+t_Exp:=0.0;
+t_end:=0.100;
+dt:=0.00005;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Blockade }
+IfBlockAMPA:=1;   IfBlockGABA:=1;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=3;
+Vrest[2]:=-0.0704 {mV}; Vrest[3]:=-0.0704 {mV};
+tau_m[2]:= 0.010 {ms}; // tau_m[3]:= 0.010 {ms};
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=1{Hz};
+  if KeepParams=0 then begin
+     Square[2]:=1e-4 {cm^2};
+     gK[2]:=40 {mS/cm^2};
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{ms, Hz}   {Built for [I Fujiwara 2A 100pA],CA1, bistratified cell}
+sc_Simplex:=100 {Hz};
+  I_ind:=100 {pA};
+  SmplFile[Smpl]:='nu(t)_I_Japan2A_100pA.d';
+end;
+
+procedure ParametersFromFile2;
+begin
+{ms, Hz}   {Built for [I Fujiwara 2A 200pA],CA1, bistratified cell}
+sc_Simplex:=100 {Hz};
+  I_ind:=200 {pA};
+  SmplFile[Smpl]:='nu(t)_I_Japan2A_200pA.d';
+end;
+
+procedure ParametersFromFile3;
+begin
+sc_Simplex:=100 {Hz};
+  I_ind:=100 {pA};
+  SmplFile[Smpl]:='mod_Japan2A_100pA.d';
+end;
+
+procedure ParametersFromFile4;
+begin
+sc_Simplex:=100 {Hz};
+  I_ind:=200 {pA};
+  SmplFile[Smpl]:='mod_Japan2A_200pA.d';
+end;
+
+procedure ParametersFromFile5;
+begin
+sc_Simplex:=100 {Hz};
+  I_ind:=100 {pA};
+  SmplFile[Smpl]:='rate(t)_100.d';
+end;
+
+procedure ParametersFromFile6;
+begin
+sc_Simplex:=100 {Hz};
+  I_ind:=200 {pA};
+  SmplFile[Smpl]:='rate(t)_200.d';
+end;
+
+procedure ParametersFromFile7;
+begin
+sc_Simplex:=100 {Hz};
+  I_ind:=300 {pA};
+  SmplFile[Smpl]:='rate(t)_300.d';
+end;
+
+procedure ParametersFromFile8;
+begin
+sc_Simplex:=100 {Hz};
+  I_ind:=200 {pA};
+  SmplFile[Smpl]:='rate(t)_200_constThr.d';
+end;
+
+procedure ParametersFromFile9;
+begin
+{ms, Hz}   {Built for [I Fujiwara 2A 300pA],CA1, bistratified cell}
+sc_Simplex:=100 {Hz};
+  I_ind:=300 {pA};
+  SmplFile[Smpl]:='nu(t)_I_Japan2A_300pA.d';
+end;
+
+procedure ParametersFromFile10;
+begin end;
+
+procedure ParametersFromFile11;
+begin end;
+
+procedure ParametersFromFile12;
+begin end;
+
+procedure ParametersFromFile13;
+begin end;
+
+procedure ParametersFromFile14;
+begin end;
+
+procedure ParametersFromFile15;
+begin end;
+
+procedure ParametersFromFile16;
+begin end;
+
+procedure ParametersFromFile17;
+begin end;
+
+procedure ParametersFromFile18;
+begin end;
+
+procedure ParametersFromFile19;
+begin end;
+

@@ -1,0 +1,125 @@
+{ Uses files:
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=1;
+{ Ohm's law }
+//HH_type:='Passive';    HH_order:='2-points';
+HH_type[1]:='Migliore';    HH_order[1]:='2-points';
+HH_type[2]:='Chow';        HH_order[2]:='1-point';
+ThrCorrection[1]:=0 {V};
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:=0;
+Iext:=100 {mkA};
+t0s:=0.001{s};  ts:=0.001{80e-6}{s};
+Qns:=40 {Hz};
+t_Exp:=0.0;
+t_end:=0.500;
+dt:=0.00015;
+ts_end:=0.150{s};  Nts:=150; {phase space}
+{ Plot scales}
+I_sc:=1 {pA};
+{ Samples - experimental curves }
+sc_Simplex:=70 {pA};
+scx_Smpl:=0.001 {s};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=0;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=1;  i3:=1;
+Vrest[3]:=0.000;
+tau_m[1]:=0.070; tau_m[2]:=0.060;
+Square[1]:=1e-4{cm^2};
+  if KeepParams=0 then begin
+     {AMPA}
+     alAMPA[1]:=185;     beAMPA[1]:=185;
+     alAMPA[2]:=340;     beAMPA[2]:=340;
+     VAMPA:=-0.00 {V};
+     {GABA}
+     alGABA[1]:={34}120;      beGABA[1]:={320}5200;
+     alGABA[2]:={34}120;      beGABA[2]:={320}5200;
+     {Conductances}
+     gAMP3[1]:=1;        gAMP3[2]:=0.5;
+     gGAB3[1]:=0;        gGAB3[2]:=0;
+     gAMPA[1]:=2;        gAMPA[2]:=4;
+     gGABA[1]:={4}3;     gGABA[2]:={2}1.4;
+     gNMD3[1]:=0;        gNMD3[2]:=0;
+     gNMDA[1]:=40;       gNMDA[2]:=40;
+     VGABA:=-0.070;
+     {AP}
+     sgmAP[1]:=0.2;  sgmAP[2]:=0.2; {!}
+     gAHP[1]:=0.2;
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+  SmplFile[Smpl]:='NoFile';
+end;
+
+procedure ParametersFromFile2;
+begin
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin
+end;
+
+procedure ParametersFromFile5;
+begin
+end;
+
+procedure ParametersFromFile6;
+begin
+end;
+
+procedure ParametersFromFile7;
+begin
+end;
+
+procedure ParametersFromFile8;
+begin
+end;
+
+procedure ParametersFromFile9;
+begin
+end;
+
+procedure ParametersFromFile10;
+begin end;
+
+procedure ParametersFromFile11;
+begin end;
+
+procedure ParametersFromFile12;
+begin end;
+
+procedure ParametersFromFile13;
+begin end;
+
+procedure ParametersFromFile14;
+begin end;
+
+procedure ParametersFromFile15;
+begin end;
+
+procedure ParametersFromFile16;
+begin end;
+
+procedure ParametersFromFile17;
+begin end;
+
+procedure ParametersFromFile18;
+begin end;
+
+procedure ParametersFromFile19;
+begin end;
+

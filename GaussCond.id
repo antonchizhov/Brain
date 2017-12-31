@@ -1,0 +1,304 @@
+{ Uses files:
+}
+
+procedure CommonParameters;
+begin
+MainDir:='E:\Anton\PAPERS\Hippocampus\PouilleScanziani\';
+Form4.SpecCond.ItemIndex:=1; //'FixThreshold';
+NSmpls:=16;
+{ Ohm's law }
+HH_type[1]:='Migliore';    HH_order[1]:='2-points';
+HH_type[2]:='Chow';        HH_order[2]:='1-point';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:=0;
+Iext:=400 {mkA};
+t0s:=0.000{s};  ts:=0.001{80e-6}{s};
+t_Exp:=0.0;
+t_end:=0.050;
+dt:=0.000025;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Plot scales}
+//AxisI_Min:=-50;   AxisI_Max:= 50;
+AxisV_Min:= -10;    AxisV_Max:=  10;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};
+{ Blockade }
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1;
+  if KeepParams=0 then begin
+     {AMPA}
+     alAMPA[1]:=126;            beAMPA[1]:=744;                 {F2A_2001}
+     alAMPA[2]:=635{420};       beAMPA[2]:=5560{400}; {old-F5a_2004} {F4d_2004}
+     {GABA}
+     alGABA[1]:=60{34};        beGABA[1]:=500{617};            {SupplFb_2004}
+     alGABA[2]:=60;            beGABA[2]:=500;                 {=SupplFb_2004}
+     VGABA:=-0.077 {V};
+     {Conductances}
+     gAMP3[1]:=0.4;      gAMP3[2]:=0.2;
+     gGAB3[1]:=0;        gGAB3[2]:=0;
+     gAMPA[1]:=0;        gAMPA[2]:=0;
+     gGABA[1]:=10;       gGABA[2]:=0;
+
+     {----}
+     Square[1]:={2e-4}3.72e-5;
+     Square[2]:=2.8e-5;
+     tau_m[1]:=0.033 {s};
+     tau_m[2]:=0.019 {s};
+     gam[2]:=500 {Hz};
+     sgmAP[2]:=0.2;
+     shift_Smp:=2 {ms};
+     roE:=3.5{1.5};
+
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{ms, pA}   {EPSC in Pyr. at Vrest=-73mV, bic.}
+{[CA1, Pouille 2001, Fig.2A]}
+  { Clamping }
+  i3:=1;    If_I_V_or_p:=1;  scy_Smpl:=-1{pA};
+//  shift_Smp:=2 {ms};
+  SmplFile[Smpl]:='Pouille_E_EPSC_F2A_2001.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile2;
+begin
+{ms, mV}   {EPSP in Pyr., bic.}
+{[CA1, Pouille 2001, Fig.3B]}
+  Iext:=130 {mkA};
+{ Clamping }
+  i3:=1;    If_I_V_or_p:=2;  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.0692{V};
+//  shift_Smp:=3 {ms};
+  IfBlockAMPA:=0;   IfBlockGABA:=1;
+  SmplFile[Smpl]:='Pouille_E_EPSP_F3B_2001.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile3;
+begin
+{ms, pA}   {IPSC in Pyr. at Vrest=-59mV, pyr.axons are stimulated}
+{[CA1, Pouille 2004, Supplementary Fig.]}
+  Iext:=50 {mkA};
+  { Clamping }
+  i3:=1;    If_I_V_or_p:=1;  scy_Smpl:=-1{pA};
+  Vrest[3]:=-0.059{V};
+//  shift_Smp:=7 {ms};
+  t_end:=0.045;
+  gAMP3[1]:=0;
+  IfBlockAMPA:=0;   IfBlockGABA:=0;
+  SmplFile[Smpl]:='Pouille_E_IPSC_SupplFb_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile4;
+begin
+{ms, mV}   {IPSP in Pyr. at Vrest=-56.4mV}
+{[CA1, Pouille 2004, Fig.1b]}
+  Iext:=1.5 {mkA};
+{ Clamping }
+  i3:=1;    If_I_V_or_p:=2;  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.0564{V};
+//  shift_Smp:=7 {ms};
+  t_end:=0.186;
+  gAMP3[1]:=0;
+  IfBlockAMPA:=0;   IfBlockGABA:=0;
+//  IfBlockK:=1;
+  SmplFile[Smpl]:='Pouille_E_IPSP_F1b_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile5;
+begin
+{ms, pA}   {EPSC in fast Int.}
+{[CA1, Pouille 2004, Fig.4d]}
+  Iext:=165 {mkA};
+{ Clamping }
+  i3:=2;    If_I_V_or_p:=1;  scy_Smpl:=-2.5{pA};
+  Vrest[3]:=-0.060{V};
+  t_end:=0.020;
+  shift_Smp:=0.8 {ms};
+  IfBlockAMPA:=0;   IfBlockGABA:=1;
+  SmplFile[Smpl]:='Pouille_I_fast_EPSC_F4d_2004.d'{'Pouille_I_EPSC_F5ci_2004.d';};
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile6;
+begin
+{ms, pA}   {PSC in Pyr. at Vrest=-73mV, bic.}
+{[CA1, Pouille 2001, Fig.2A]}
+  Iext:=50 {mkA};
+{ Clamping }
+  i3:=1;    If_I_V_or_p:=1;  scy_Smpl:=-1{pA};
+  Vrest[3]:=-0.059;//-0.073{V};
+  t_end:=0.050;
+//  gAMP3[1]:=0.3;      gGABA[1]:=11;
+  IfBlockAMPA:=0;   IfBlockGABA:=0;
+//  shift_Smp:=2 {ms};
+  SmplFile[Smpl]:='Pouille_E_PSC_SupplFb_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile7;
+begin
+{ms, pA}   {PSC in Pyr. at Vrest=-73mV, bic.}
+{[CA1, Pouille 2001, Fig.2A]}
+  Iext:=130 {mkA};
+{ Clamping }
+  i3:=1;    If_I_V_or_p:=1;  scy_Smpl:=-1{pA};
+  Vrest[3]:=-0.073{V};
+  t_end:=0.050;
+  IfBlockAMPA:=0;   IfBlockGABA:=0;
+//  shift_Smp:=2 {ms};
+  SmplFile[Smpl]:='Pouille_E_PSC_F2A_2001.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile8;
+begin
+{ms, mV}   {PSP in Pyr.}
+{[CA1, Pouille 2001, Fig.3B]}
+  Iext:=130 {mkA};
+{ Clamping }
+  i3:=1;    If_I_V_or_p:=2;  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.0692{V};
+  t_end:=0.100;
+  IfBlockAMPA:=0;   IfBlockGABA:=0;
+//  shift_Smp:=2 {ms};
+  SmplFile[Smpl]:='Pouille_E_PSP_F3B_2001.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile9;
+begin
+{ms, pA}   {EPSC in fast Int.}
+{[CA1, Pouille 2004, Fig.5c]}
+  Iext:=130 {mkA};
+{ Clamping }
+  i3:=2;    If_I_V_or_p:=1;  scy_Smpl:=-1{pA};
+  Vrest[3]:=-0.060{V};
+  t_end:=0.020;
+  IfBlockAMPA:=0;   IfBlockGABA:=1;
+//  shift_Smp:=2.8 {ms};
+  SmplFile[Smpl]:='Pouille_I_EPSC_F5c_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile10;
+begin
+{ms, pA}   {EPSP in fast Int.}
+{[CA1, Pouille 2004, Fig.5a]}
+  Iext:=130 {mkA};
+{ Clamping }
+  i3:=2;    If_I_V_or_p:=2;  scy_Smpl:=0.001{pA};
+  Vrest[3]:=-0.060{V};
+  t_end:=0.020;
+  IfBlockAMPA:=0;   IfBlockGABA:=1;
+  SmplFile[Smpl]:='Pouille_I_EPSP_F5a_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile11;
+begin
+{ms, pA}   {PSC in fast Int.}
+{[CA1, Pouille 2004, Fig.5c]}
+  Iext:=130 {mkA};
+{ Clamping }
+  i3:=2;    If_I_V_or_p:=1;  scy_Smpl:=-1{pA};
+  Vrest[3]:=-0.060{V};
+  t_end:=0.020;
+  IfBlockAMPA:=0;   IfBlockGABA:=0;
+  SmplFile[Smpl]:='Pouille_I_PSC_F5ci_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile12;
+begin
+{ms, pA}   {PSP in fast Int.}
+{[CA1, Pouille 2004, Fig.5a]}
+  Iext:=130 {mkA};
+{ Clamping }
+  i3:=2;    If_I_V_or_p:=2;  scy_Smpl:=0.001{pA};
+  Vrest[3]:=-0.060{V};
+  t_end:=0.020;
+  IfBlockAMPA:=0;   IfBlockGABA:=0;
+  SmplFile[Smpl]:='Pouille_I_PSP_F5a_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile13;
+begin
+        {EPSP in Pyr.}
+{[CA1, Pouille 2001, Fig.4B]}
+  Iext:=65 {mkA};
+{ Clamping }
+  i3:=1;    If_I_V_or_p:=2;  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.066{V};
+  t_end:=0.120;
+  IfBlockAMPA:=0;   IfBlockGABA:=1;
+//  shift_Smp:=2 {ms};
+  SmplFile[Smpl]:='Pouille_E2_EPSP_F4B_2001.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile14;
+begin
+        {PSP in Pyr.}
+{[CA1, Pouille 2001, Fig.4B]}
+  Iext:=65 {mkA};
+{ Clamping }
+  i3:=1;    If_I_V_or_p:=2;  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.066{V};
+  t_end:=0.120;
+  IfBlockAMPA:=0;   IfBlockGABA:=0;
+//  shift_Smp:=2 {ms};
+  SmplFile[Smpl]:='Pouille_E2_PSP_F4A_2001.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile15;
+begin
+        {EPSP-2 in Pyr. with stimulation doubled}
+{[CA1, Pouille 2001, Fig.4B]}
+  Iext:=130 {mkA};
+{ Clamping }
+  i3:=1;    If_I_V_or_p:=2;  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.066{V};
+  t_end:=0.120;
+  IfBlockAMPA:=0;   IfBlockGABA:=1;
+//  shift_Smp:=2 {ms};
+  SmplFile[Smpl]:='Pouille_E2_EPSP2_F4B_2001.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile16;
+begin
+        {PSP-2 in Pyr. with stimulation doubled}
+{[CA1, Pouille 2001, Fig.4B]}
+  Iext:=130 {mkA};
+{ Clamping }
+  i3:=1;    If_I_V_or_p:=2;  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.066{V};
+  t_end:=0.120;
+  IfBlockAMPA:=0;   IfBlockGABA:=0;
+//  shift_Smp:=2 {ms};
+  SmplFile[Smpl]:='Pouille_E2_PSP2_F4A_2001.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile17;
+begin end;
+
+procedure ParametersFromFile18;
+begin end;
+
+procedure ParametersFromFile19;
+begin end;
+

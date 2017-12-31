@@ -1,0 +1,237 @@
+{ Uses files:
+                 'E_EPSC_4V_Mlinar.d'
+                 'E_EPSC_5V_Mlinar.d'
+                 'E_EPSC_6V_Mlinar.d'
+                 'E_EPSC_7V_Mlinar.d'
+                  'E_PSP_5V_Mlinar.d'
+                  'E_PSP_7V_Mlinar.d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=9;
+{ Ohm's law }
+HH_type[1]:='Passive';    HH_order[1]:='2-points';
+HH_type[2]:='Passive';    HH_order[2]:='1-point';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:=0;
+t0s:=0.001{s};  ts:=0.001{80e-6}{s};
+t_Exp:=0.0;
+t_end:=0.180;
+dt:=0.00015;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Samples - experimental curves }
+sc_Simplex:=70 {pA};
+scx_Smpl:=0.001 {s}; shift_Smp:=2 {ms};
+  if KeepParams=0 then begin
+     {AMPA}
+     alAMPA[1]:=185;     beAMPA[1]:=185;
+     alAMPA[2]:=340;     beAMPA[2]:=340;
+     VAMPA:=-0.00 {V};
+     {GABA}
+     alGABA[1]:={34}120;      beGABA[1]:={320}5200;
+     alGABA[2]:={34}120;      beGABA[2]:={320}5200;
+     {GABB}
+     alGABB[1]:=7;       beGABB[1]:=7;
+     alGABB[2]:=7;       beGABB[2]:=7;
+     {NMDA}
+     alNMDA[1]:=10 {1/s};     beNMDA[1]:=125 {1/s};
+     alNMDA[2]:=10 {1/s};     beNMDA[2]:=125 {1/s};
+     VNMDA:=-0.000 {V};
+     Mg:=1.3 {mM};
+     {Conductances}
+     gAMP3[1]:=1.6;      gAMP3[2]:=1.6;
+     gNMD3[1]:=18;       gNMD3[2]:=18;
+     gGAB3[1]:=2.6;      gGAB3[2]:=0;
+     gAMPA[1]:=0.84;      gAMPA[2]:=0.84;
+     gNMDA[1]:=10;       gNMDA[2]:=10;
+     gGABA[1]:=5;        gGABA[2]:=0;
+     gGABB[1]:=20;       gGABB[2]:=0;
+
+{     gAMP3[1]:=1.6;      gAMP3[2]:=1.6;
+     gNMD3[1]:=20;        gNMD3[2]:=0;
+     gGAB3[1]:=2.6;      gGAB3[2]:=0;
+     gAMPA[1]:=0.8;      gAMPA[2]:=0.8;
+     gNMDA[1]:=10;        gNMDA[2]:=0;
+     gGABA[1]:=5.0;      gGABA[2]:=0;
+     gGABB[1]:=20;       gGABB[2]:=0;}
+     {----}
+     Square[1]:=3.72e-5;
+     ThrCorrection[1]:=-0.003 {V};
+     ThrCorrection[2]:=-0.003 {V};
+     sgmAP[1]:=0.2;
+     gAHP[1]:=0.3; {!}
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{ms, pA}   {EPSC (bic, CGP35348), stim.=4V}
+{[CA1, Mlinar et al.]}
+Iext:=22.8*(4-3) {mkA};
+scy_Smpl:=-1{pA};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=1;  i3:=1;
+  SmplFile[Smpl]:='E_EPSC_4V_Mlinar.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile2;
+begin
+{ms, pA}   {EPSC (bic, CGP35348), stim.=5V}
+{[CA1, Mlinar et al.]}
+Iext:=22.8*(5-3) {mkA};
+scy_Smpl:=-1{pA};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=1;  i3:=1;
+  SmplFile[Smpl]:='E_EPSC_5V_Mlinar.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile3;
+begin
+{ms, pA}   {EPSC (bic, CGP35348), stim.=6V}
+{[CA1, Mlinar et al.]}
+Iext:=22.8*(6-3) {mkA};
+scy_Smpl:=-1{pA};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=1;  i3:=1;
+  SmplFile[Smpl]:='E_EPSC_6V_Mlinar.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile4;
+begin
+{ms, pA}   {EPSC (bic, CGP35348), stim.=7V}
+{[CA1, Mlinar et al.]}
+Iext:=22.8*(7-3) {mkA};
+scy_Smpl:=-1{pA};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=1;  i3:=1;
+  SmplFile[Smpl]:='E_EPSC_7V_Mlinar.d';
+  CorrespondParametersToTheForm;
+end;
+
+{**************** PSPs *****************}
+procedure ParametersFromFile5;
+begin
+{ms, pA}   {PSP, stim.=5V}
+{[CA1, Mlinar et al.]}
+Iext:=14*(5-3){mkA};
+scy_Smpl:=0.001{V};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=0;
+{ Clamping }
+IfChangeVrest:=0; If_I_V_or_p:=2;  i3:=1;
+  SmplFile[Smpl]:='E_PSP_5V_Mlinar.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile6;
+begin
+{ms, pA}   {PSP, stim.=7V}
+{[CA1, Mlinar et al.]}
+Iext:=14*(7-3){mkA};
+scy_Smpl:=0.001{V};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=0;
+{ Clamping }
+IfChangeVrest:=0; If_I_V_or_p:=2;  i3:=1;
+  SmplFile[Smpl]:='E_PSP_7V_Mlinar.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile7;
+begin
+{ms, pA}   {PSP, stim.=8V}
+{[CA1, Mlinar et al.]}
+Iext:=14*(8-3){mkA};
+scy_Smpl:=0.001{V};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=0;
+{ Clamping }
+IfChangeVrest:=0; If_I_V_or_p:=2;  i3:=1;
+  SmplFile[Smpl]:='E_PSP_8V_Mlinar.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile8;
+begin
+{ms, pA}   {PSP, stim.=8.4V}
+{[CA1, Mlinar et al.]}
+Iext:=14*(8.4-3){mkA};
+scy_Smpl:=0.001{V};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=0;
+{ Clamping }
+IfChangeVrest:=0; If_I_V_or_p:=2;  i3:=1;
+  SmplFile[Smpl]:='E_PSP_84V_Mlinar.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure ParametersFromFile9;
+begin
+{ms, pA}   {PSP, stim.=8.6V}
+{[CA1, Mlinar et al.]}
+Iext:=14*(8.6-3){mkA};
+scy_Smpl:=0.001{V};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=0;
+{ Clamping }
+IfChangeVrest:=0; If_I_V_or_p:=2;  i3:=1;
+  SmplFile[Smpl]:='E_PSP_86V_Mlinar.d';
+  CorrespondParametersToTheForm;
+end;
+
+
+procedure ParametersFromFile10;
+begin end;
+
+procedure ParametersFromFile11;
+begin end;
+
+procedure ParametersFromFile12;
+begin end;
+
+procedure ParametersFromFile13;
+begin end;
+
+procedure ParametersFromFile14;
+begin end;
+
+procedure ParametersFromFile15;
+begin end;
+
+procedure ParametersFromFile16;
+begin end;
+
+procedure ParametersFromFile17;
+begin end;
+
+procedure ParametersFromFile18;
+begin end;
+
+procedure ParametersFromFile19;
+begin end;
+

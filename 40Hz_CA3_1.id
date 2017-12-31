@@ -1,0 +1,135 @@
+{ Uses files:
+}
+
+procedure _Gam_CommonParameters;
+begin
+NSmpls:=1;
+NPop:=2;
+{ Ohm's law }
+//HH_type:='Passive';    HH_order:='2-points';
+NP0[1].HH_type:='Migliore';    NP0[1].HH_order:='2-points';
+NP0[2].HH_type:='Chow';        NP0[2].HH_order:='1-point';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+IfSigmoidForPresynRate:=1;  
+If_m_saturates:=1;
+{ Input}
+I_ind:=0;
+Iext:=0 {mkA};
+t0s:=0.001{s};  tSt:=0.001{80e-6}{s};
+Qns:=40 {Hz};
+t_Exp:=0.0;
+t_end:=5.000;   PlotWindow:=200{ms};
+dt:=0.00015;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Samples - experimental curves }
+sc_Simplex:=70 {pA};
+scx_Smpl:=0.001 {s};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=0;
+IfBlockNMDA:=1;   IfBlockGABB:=0;
+{ Clamping }
+IfChangeVrest:=1; i3:=1;
+NP0[3].Vrest:=-0.064;
+NP0[1].tau_m0:=0.070; NP0[2].tau_m0:=0.060;
+NP0[1].Square:=1e-4{cm^2};
+{ 2-D }
+ni:=40;  ni_2:=trunc(ni/2);
+R_stim:=2;  ni_stim:=ni;
+i_view:=5;
+{*****************}
+   Form4.gSynC1.Visible:=true;
+   If_Binzegger_V1:=0;
+{*****************}  if KeepParams=0 then begin
+     {AMPA}
+     alAMPA[1]:=185;     beAMPA[1]:=185;
+     alAMPA[2]:=340;     beAMPA[2]:=340;
+     VAMPA:=-0.00 {V};
+     {GABA}
+     alGABA[1]:={34}120;      beGABA[1]:={320}5200;
+     alGABA[2]:={34}120;      beGABA[2]:={320}5200;
+     {Conductances}
+     gAMP3[1]:=1/10;        gAMP3[2]:=0.5/10;
+     gNMD3[1]:=0;        gNMD3[2]:=0;
+     gGAB3[1]:=0;        gGAB3[2]:=0;
+     gAMPA[1]:=2/10;        gAMPA[2]:=4/10;
+     gNMDA[1]:=0;        gNMDA[2]:=0;
+     gGABA[1]:=3/10;        gGABA[2]:=0;
+     gGABB[1]:=0.5/10;      gGABB[2]:=0;
+     gGJ[1]:=0;          gGJ[2]:=0.1/10;
+     VGABA:=-0.070;
+     {AP}
+     sgm_V[1]:=0.004;      sgm_V[2]:=0.004; {!}
+     NP0[1].gAHP:=0.2;
+     KeepParams:=1;
+  end;
+end;
+
+procedure _Gam_ParametersFromFile;
+begin
+  SmplFile[Smpl]:='NoFile';
+end;
+
+procedure _Gam_ParametersFromFile2;
+begin
+end;
+
+procedure _Gam_ParametersFromFile3;
+begin
+end;
+
+procedure _Gam_ParametersFromFile4;
+begin
+end;
+
+procedure _Gam_ParametersFromFile5;
+begin
+end;
+
+procedure _Gam_ParametersFromFile6;
+begin
+end;
+
+procedure _Gam_ParametersFromFile7;
+begin
+end;
+
+procedure _Gam_ParametersFromFile8;
+begin
+end;
+
+procedure _Gam_ParametersFromFile9;
+begin
+end;
+
+procedure _Gam_ParametersFromFile10;
+begin end;
+
+procedure _Gam_ParametersFromFile11;
+begin end;
+
+procedure _Gam_ParametersFromFile12;
+begin end;
+
+procedure _Gam_ParametersFromFile13;
+begin end;
+
+procedure _Gam_ParametersFromFile14;
+begin end;
+
+procedure _Gam_ParametersFromFile15;
+begin end;
+
+procedure _Gam_ParametersFromFile16;
+begin end;
+
+procedure _Gam_ParametersFromFile17;
+begin end;
+
+procedure _Gam_ParametersFromFile18;
+begin end;
+
+procedure _Gam_ParametersFromFile19;
+begin end;
+

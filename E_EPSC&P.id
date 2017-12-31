@@ -1,0 +1,89 @@
+{ Uses files:
+                 'E_EPSC.d'
+                 'E_EPSP.d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=2;
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=1;
+{ Ohm's law }
+HH_type:='Passive';
+{ Input}
+Im:=0;
+t0s:=0.001{s};  ts:=0.001{80e-6}{s};
+t_Exp:=0.0;
+t_end:=0.080;
+dt:=0.00005;
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=0;   IfBlockGABB:=1;
+Vrest[1]:=-0.064;
+  if KeepParams=0 then begin
+     {Stimul}
+     Iext:=120{mkA};
+     {AMPA}
+     gAMPA[1]:=0;
+     gAMP3[1]:=0.7{0.144};
+     alAMPA:=200{60};
+     betaAMPA:=390;
+     VAMPA:=-0.00 {V};
+     {NMDA}
+     gNMDA[1]:=0;
+     gNMD3[1]:=13.4{1.7} {mS/cm^2};
+     alNMDA:=10 {1/s};
+     betaNMDA:=116 {1/s};
+     VNMDA:=-0.000 {V};
+     Mg:=1.3 {mM};
+     { passive params }
+     Square[1]:=0.8e-4{2.65e-4}{2.72e-5}  {cm^2};
+     C_membr  := 0.001  {mF/cm^2};
+     //tau_m[1] := 0.014{214} {mS/cm^2};
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{ms, pA}   {EPSC at Vh=-90mV (PTX)}
+{[CA1, Hestrin et al., Fig.1D]}
+CommonParameters;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=-1{pA};
+{ Plot scales}
+I_sc:=1 {pA};
+{ Scale for Simplex }
+sc_Simplex:=100 {pA};
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=1;
+Vrest[3]:=-0.090;
+  SmplFile[Smpl]:='E_EPSC.d';
+end;
+
+
+procedure ParametersFromFile2;
+begin
+{ms, pA}   {EPSP (PTX) at Vrest=-85 mV}
+{[CA1, Hestrin et al., Fig.1B]}
+CommonParameters;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=0.001 {V};
+{ Plot scales}
+V_sc:=1000 {mV};
+{ Scale for Simplex }
+sc_Simplex:=0.005 {mV};
+{ Clamping }
+IfChangeVrest:=1; IfCurrent:=0;
+Vrest[3]:=-0.085;
+  SmplFile[Smpl]:='E_EPSP.d';
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin
+end;
+

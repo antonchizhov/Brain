@@ -1,0 +1,121 @@
+{ Uses files:
+                 'I_v(t)_Ali_04.d'
+}
+
+procedure _LIF_CommonParameters;
+begin
+NSmpls:=3;
+NPop:=1;
+i3:=1;
+{ Ohm's law }
+NP0[1].HH_type:='Passive';  NP0[1].HH_order:='1-point';
+HodgkinPhysParameters(NP0[1]);
+     Form4.ComboBox8.ItemIndex:=0;         {'FixThreshold=10mV'}
+     Form4.ComboBox9.ItemIndex:=0;         {'FixThreshold=10mV'}
+     NP0[1].Vrest :=-0.065;{V}
+     NP0[1].Vreset:=-0.065;{V}
+     NP0[1].tau_m0:=0.010;{s}
+     NP0[1].dT_AP:=0.00001;
+     NP0[1].Square:=10e-5;{cm^2}
+     NP0[3]:=NP0[1];
+     Nts[1]:=400;
+     ts_end[1]:=0.040;
+     n_Write:=2;
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+Form4.CheckBox11.Checked:=false; { Background }
+I_ind:=150 {pA};
+t_ind:=0.100 {s};
+t0s:=0;
+Iext:=0{mkA};
+t_Exp:=0.0;
+t_end:=0.150;
+dt:=0.0001;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Blockade }
+IfBlockAMPA:=1;   IfBlockGABA:=1;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1; NP0[3].If_I_V_or_g:=2;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=1{Hz};
+  if KeepParams=0 then begin
+     KeepParams:=1;
+  end;
+end;
+
+procedure _LIF_ParametersFromFile;
+begin
+  SmplFile[Smpl]:='NoFile';
+end;
+
+procedure _LIF_ParametersFromFile2;
+begin
+  I_ind:=150 {pA};
+  SmplFile[Smpl]:='NoFile';
+end;
+
+procedure _LIF_ParametersFromFile3;
+begin
+  {ms, nA}   {[Mainen 1995], Noise-like input current}
+  t_end:=1.000;
+  Form4.ComboBox7.ItemIndex:=4;
+  SmplFile[Smpl]:='Fig1B_Mainen1995.d';
+end;
+
+procedure _LIF_ParametersFromFile4;
+begin
+end;
+
+procedure _LIF_ParametersFromFile5;
+begin
+end;
+
+procedure _LIF_ParametersFromFile6;
+begin
+end;
+
+procedure _LIF_ParametersFromFile7;
+begin
+end;
+
+procedure _LIF_ParametersFromFile8;
+begin
+end;
+
+procedure _LIF_ParametersFromFile9;
+begin
+end;
+
+procedure _LIF_ParametersFromFile10;
+begin end;
+
+procedure _LIF_ParametersFromFile11;
+begin end;
+
+procedure _LIF_ParametersFromFile12;
+begin end;
+
+procedure _LIF_ParametersFromFile13;
+begin end;
+
+procedure _LIF_ParametersFromFile14;
+begin end;
+
+procedure _LIF_ParametersFromFile15;
+begin end;
+
+procedure _LIF_ParametersFromFile16;
+begin end;
+
+procedure _LIF_ParametersFromFile17;
+begin end;
+
+procedure _LIF_ParametersFromFile18;
+begin end;
+
+procedure _LIF_ParametersFromFile19;
+begin end;
+
