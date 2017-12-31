@@ -1,0 +1,434 @@
+Form4
+   0.0000 :DDSpinEdit1
+  10.0000 :DDSpinEdit2
+   1.0000 :DDSpinEdit3
+  10.0000 :DDSpinEdit4
+  10.0000 :DDSpinEdit5
+   4.0000 :DDSpinEdit6
+10560.0000 :DDSpinEdit7
+   0.0050 :DDSpinEdit8
+   1.0000 :DDSpinEdit9
+   0.0000 :DDSpinEdit10
+   0.4000 :DDSpinEdit11
+ 150.0000 :DDSpinEdit12
+   0.0000 :DDSpinEdit13
+   1.0000 :DDSpinEdit14
+   1.0000 :DDSpinEdit15
+   4.0000 :DDSpinEdit16
+  40.0000 :DDSpinEdit17
+  50.0000 :DDSpinEdit18
+   2.0000 :DDSpinEdit19
+   1.0000 :DDSpinEdit20
+   0.0000 :DDSpinEdit21
+ 120.0000 :DDSpinEdit22
+  10.0000 :DDSpinEdit23
+  50.0000 :DDSpinEdit24
+   8.0000 :DDSpinEdit25
+ 600.0000 :DDSpinEdit26
+ 150.0000 :DDSpinEdit27
+2000.0000 :DDSpinEdit28
+   8.0000 :DDSpinEdit29
+ 120.0000 :DDSpinEdit30
+  10.0000 :DDSpinEdit31
+  50.0000 :DDSpinEdit32
+   8.0000 :DDSpinEdit33
+ 600.0000 :DDSpinEdit34
+ 150.0000 :DDSpinEdit35
+2000.0000 :DDSpinEdit36
+   8.0000 :DDSpinEdit37
+   0.0000 :DDSpinEdit38
+   0.0000 :DDSpinEdit39
+ -60.0000 :DDSpinEdit40
+ -93.0000 :DDSpinEdit41
+ -27.0000 :DDSpinEdit42
+   0.1000 :DDSpinEdit43
+   0.2500 :DDSpinEdit44
+   2.0000 :DDSpinEdit45
+  60.0000 :DDSpinEdit46
+   0.0000 :DDSpinEdit47
+1000000.0000 :DDSpinEdit48
+ -65.0000 :DDSpinEdit49
+ -60.0000 :DDSpinEdit50
+  14.4000 :DDSpinEdit51
+   9.6800 :DDSpinEdit52
+   5.0000 :DDSpinEdit53
+  10.0000 :DDSpinEdit54
+   2.0000 :DDSpinEdit55
+   0.6000 :DDSpinEdit56
+   0.0000 :DDSpinEdit57
+   0.2000 :DDSpinEdit58
+   0.2000 :DDSpinEdit59
+   0.0000 :DDSpinEdit60
+   0.0000 :DDSpinEdit61
+   1.0000 :DDSpinEdit62
+ 100.0000 :DDSpinEdit63
+ 100.0000 :DDSpinEdit64
+   0.0000 :DDSpinEdit65
+   2.0000 :DDSpinEdit66
+   0.0000 :DDSpinEdit67
+   0.0000 :DDSpinEdit68
+   0.0000 :DDSpinEdit69
+   1.0000 :DDSpinEdit70
+ 120.0000 :DDSpinEdit71
+
+   2.0000 :DDSpinEdit73
+   0.7600 :DDSpinEdit74
+   5.0000 :DDSpinEdit75
+  50.0000 :DDSpinEdit76
+  20.0000 :DDSpinEdit80
+   5.0000 :DDSpinEdit81
+ -40.0000 :DDSpinEdit83
+ -40.0000 :DDSpinEdit84
+   4.3600 :DDSpinEdit85
+   0.0000 :DDSpinEdit86
+   0.7600 :DDSpinEdit87
+  40.0000 :DDSpinEdit88
+   0.0000 :DDSpinEdit89
+   2.0000 :DDSpinEdit90
+  24.0000 :DDSpinEdit91
+   0.0000 :DDSpinEdit92
+   0.9200 :DDSpinEdit93
+   1.0000 :DDSpinEdit94
+   0.7000 :DDSpinEdit96
+   1.0000 :DDSpinEdit97
+   2.0000 :DDSpinEdit98
+   1.5000 :DDSpinEdit106
+   1.4000 :DDSpinEdit107
+   0.1000 :DDSpinEdit108
+   0.0000 :DDSpinEdit109
+   0.0100 :DDSpinEdit110
+   0.0000 :DDSpinEdit111
+   0.2000 :DDSpinEdit112
+   0.2000 :DDSpinEdit113
+   2.8500 :DDSpinEdit114
+   2.8500 :DDSpinEdit115
+   0.0000 :DDSpinEdit116
+   0.0000 :DDSpinEditA[  1]
+   0.0000 :DDSpinEditA[  2]
+   0.6000 :DDSpinEditA[  3]
+   0.2000 :DDSpinEditA[  4]
+   0.0000 :DDSpinEditA[  5]
+   0.0000 :DDSpinEditA[  6]
+   0.5000 :DDSpinEditA[  7]
+   0.5000 :DDSpinEditA[  8]
+   0.0000 :DDSpinEditA[  9]
+   0.0000 :DDSpinEditA[ 10]
+   0.6000 :DDSpinEditA[ 11]
+   0.2000 :DDSpinEditA[ 12]
+   0.0000 :DDSpinEditA[ 13]
+   0.0170 :DDSpinEditA[ 14]
+   0.0000 :DDSpinEditA[ 15]
+   0.0000 :DDSpinEditA[ 16]
+   0.6000 :DDSpinEditA[ 17]
+   0.0080 :DDSpinEditA[ 18]
+   0.3610 :DDSpinEditA[ 19]
+   0.0610 :DDSpinEditA[ 20]
+   0.0910 :DDSpinEditA[ 21]
+   0.0000 :DDSpinEditA[ 22]
+   0.5000 :DDSpinEditA[ 23]
+   0.0000 :DDSpinEditA[ 24]
+   0.0000 :DDSpinEditA[ 25]
+   0.0000 :DDSpinEditA[ 26]
+   0.0000 :DDSpinEditA[ 27]
+   0.0000 :DDSpinEditA[ 28]
+   0.0000 :DDSpinEditA[ 29]
+   0.0000 :DDSpinEditA[ 30]
+   0.0000 :DDSpinEditA[ 31]
+   0.0330 :DDSpinEditA[ 32]
+   0.0000 :DDSpinEditA[ 33]
+   0.0000 :DDSpinEditA[ 34]
+   0.6000 :DDSpinEditA[ 35]
+   0.0330 :DDSpinEditA[ 36]
+   0.0000 :DDSpinEditA[ 37]
+   0.0000 :DDSpinEditA[ 38]
+   0.0000 :DDSpinEditA[ 39]
+   0.0000 :DDSpinEditA[ 40]
+   0.0000 :DDSpinEditA[ 41]
+   0.0000 :DDSpinEditA[ 42]
+   0.0000 :DDSpinEditA[ 43]
+   0.0000 :DDSpinEditA[ 44]
+   0.0000 :DDSpinEditA[ 45]
+   0.0000 :DDSpinEditA[ 46]
+   0.0000 :DDSpinEditA[ 47]
+   0.0000 :DDSpinEditA[ 48]
+   0.0000 :DDSpinEditA[ 49]
+   0.0000 :DDSpinEditA[ 50]
+  2 ComboBox1
+  1 ComboBox2
+  1 ComboBox3
+  1 ComboBox4
+  7 ComboBox5
+  0 ComboBox6
+  0 CheckBox1
+  0 CheckBox2
+  0 CheckBox3
+  1 CheckBox4
+  0 CheckBox5
+  0 CheckBox6
+void
+  1 CheckBox8
+  0 CheckBox9
+  1 CheckBox10
+  0 CheckBox11
+  1 CheckBox12
+  0 CheckBox14
+  1 CheckBox15
+  1 CheckBox16
+ -1 ComboBox7
+  1 CheckBox18
+  1 CheckBox19
+  0 CheckBox20
+Form3
+  50.0000 :DDSpinEdit1
+  17.0000 :DDSpinEdit2
+  10.0000 :DDSpinEdit3
+   1.0000 :DDSpinEdit4
+  20.0000 :DDSpinEdit5
+   9.0000 :DDSpinEdit6
+   1.0000 :DDSpinEdit7
+ 200.0000 :DDSpinEdit8
+ 200.0000 :DDSpinEdit9
+  20.0000 :DDSpinEdit10
+   9.0000 :DDSpinEdit11
+   0.0000 :DDSpinEdit12
+   3.0000 :DDSpinEdit13
+   2.0000 :DDSpinEdit14
+  10.0000 :DDSpinEdit15
+   0.0000 :DDSpinEdit16
+  90.0000 :DDSpinEdit17
+ 100.0000 :DDSpinEdit18
+   0.0000 :DDSpinEdit19
+   0.0000 :DDSpinEdit20
+   0.0000 :DDSpinEdit21
+ 800.0000 :DDSpinEdit24
+ 250.0000 :DDSpinEdit25
+ 800.0000 :DDSpinEdit26
+ 250.0000 :DDSpinEdit27
+  1 ComboBox1
+  2 ComboBox2
+  1 ComboBox3
+  1 CheckBox1
+  0 CheckBox2
+  0 CheckBox3
+  0 CheckBox4
+  1 CheckBox5
+  0 CheckBox6
+  1 CheckBox7
+  0 CheckBox8
+Form1
+  0 CheckBox1
+  1 CheckBox2
+  0 CheckBox3
+  1 CheckBox4
+  0 CheckBox5
+  1 CheckBox6
+  0                       Smpl1: TMenuItem
+  0                       Smpl2: TMenuItem
+  0                       Smpl3: TMenuItem
+  0                       Smpl4: TMenuItem
+  0                       Smpl5: TMenuItem
+  0                       Smpl6: TMenuItem
+  0                       Smpl7: TMenuItem
+  0                       Smpl8: TMenuItem
+  0                       Smpl9: TMenuItem
+  1                       Smpl0: TMenuItem
+  0                      Smpl10: TMenuItem
+  0                      Smpl11: TMenuItem
+  0                      Smpl12: TMenuItem
+  0                      Smpl13: TMenuItem
+  0                      Smpl14: TMenuItem
+  0                      Smpl15: TMenuItem
+  0                      Smpl16: TMenuItem
+  0                      Smpl17: TMenuItem
+  0                      Smpl18: TMenuItem
+  0                      Smpl19: TMenuItem
+  0                       File1: TMenuItem
+  0                 Parameters1: TMenuItem
+  0                     HHtype2: TMenuItem
+  0                    Passive1: TMenuItem
+  0                     Calmar1: TMenuItem
+  0                   Destexhe1: TMenuItem
+  0                   Migliore1: TMenuItem
+  0                    HHorder1: TMenuItem
+  0                    N1point1: TMenuItem
+  1                   N2points1: TMenuItem
+  0                       Chow1: TMenuItem
+  1                       Lyle1: TMenuItem
+  1                  TVDscheme1: TMenuItem
+  0                     Thread1: TMenuItem
+  0         NotNoisySteadyRate1: TMenuItem
+  1            NoisySteadyRate1: TMenuItem
+  0      SteadyStateOfPopModel1: TMenuItem
+  0                    HHtype11: TMenuItem
+  1                       Chow2: TMenuItem
+  0                     Calmar2: TMenuItem
+  0                    Passive2: TMenuItem
+  0                   HHorder11: TMenuItem
+  0                   N2points2: TMenuItem
+  1                    N1point2: TMenuItem
+  0                       View1: TMenuItem
+  0                 Phasespace1: TMenuItem
+  0                  Inspector1: TMenuItem
+  0        Putwindowsattopleft1: TMenuItem
+  0                        Run1: TMenuItem
+  0                        N0d1: TMenuItem
+  0                    Simplex1: TMenuItem
+  0                        N2D1: TMenuItem
+  0                     V1Ring1: TMenuItem
+  0             RebuildAColumn1: TMenuItem
+  0                      Pause1: TMenuItem
+  0                       Stop1: TMenuItem
+  0                      Clear1: TMenuItem
+  0                          N1: TMenuItem
+  0                    fIcurve1: TMenuItem
+  0                       Rose1: TMenuItem
+  0            ArtificialSlice1: TMenuItem
+  1                 Thomsoncat1: TMenuItem
+  0                 V1ringtest5: TMenuItem
+  0                V1ringtest55: TMenuItem
+  0                 V1ringtest6: TMenuItem
+  0                     GJ_Sotn: TMenuItem
+  0                          N2: TMenuItem
+  0                          N3: TMenuItem
+  0             ArtificialSlice: TMenuItem
+  0                  FullForm11: TMenuItem
+  0                          N4: TMenuItem
+  0                          N5: TMenuItem
+  0                          N6: TMenuItem
+  0              V1ringtest5PSP: TMenuItem
+  0               FittoPSCsPSPs: TMenuItem
+  0                       Help1: TMenuItem
+  0                        LIF1: TMenuItem
+  0              PouillePSCPSP1: TMenuItem
+  0                          N7: TMenuItem
+  0         Savesettingstofile1: TMenuItem
+  0       Loadsettingsfromfile1: TMenuItem
+Empty
+Form3
+  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 
+  0 CheckBox1
+  0 CheckBox2
+  0 ComboBox1
+  1 Form4.CheckBox21
+   1.0000 :Form4.DDSpinEdit77
+   1.0000 :Form4.DDSpinEdit78
+  1 Form4.CheckBox13
+  -0.2000 :Form25.DDSpinEdit79
+Empty
+Empty
+Empty
+  1 :Form1.LFP1: TMenuItem
+Empty
+  0  :Form1.Bazhenov1: TMenuItem
+  0  :Form1.N2pMainenSejn1: TMenuItem
+   0.5000 :Form4.DDSpinEdit79
+  10.0000 :Form4.DDSpinEdit82
+  1 Form4.CheckBox7
+  0 Form4.RadioGroup1
+  0  :Form1.N2pActiveDend1: TMenuItem
+   0.0000 :Form3.DDSpinEdit22
+  0 Form3.Visible
+  0 LGN_Form1.Visible
+  0 LGN_Form15.Visible
+ 19 Form15.Frame15.ComboBox1
+Form26
+   0.0350 :Form26.DDSpinEdit1
+   0.0100 :Form26.DDSpinEdit2
+   1.0000 :Form26.DDSpinEdit3
+   0.0080 :Form26.DDSpinEdit4
+  10.0000 :Form26.DDSpinEdit5
+ 100.0000 :Form26.DDSpinEdit6
+ 100.0000 :Form26.DDSpinEdit7
+20000.0000 :Form26.DDSpinEdit8
+   8.0000 :Form26.DDSpinEdit9
+   8.0000 :Form26.DDSpinEdit10
+   0.0800 :Form26.DDSpinEdit11
+   0.0010 :Form26.DDSpinEdit12
+   8.5000 :Form26.DDSpinEdit13
+   0.0500 :Form26.DDSpinEdit14
+  40.0000 :Form26.DDSpinEdit15
+ 130.0000 :Form26.DDSpinEdit16
+  0 :Form26.CheckBox1
+  0 :Form26.CheckBox2
+  0 :Form26.CheckBox3
+  1 :Form26.CheckBox4
+  1 :Form26.RadioGroup1.ItemIndex
+  1 Form4.CheckBox17
+   5.0000 :DDSpinEdit95
+   6.0000 :DDSpinEdit99
+  0 :Form4.i3_Combo.ItemIndex
+   0.1000 :Form26.DDSpinEdit17
+   0.5000 :Form26.DDSpinEdit18
+   0.5000 :Form26.DDSpinEdit19
+  20.0000 :Form26.DDSpinEdit20
+   0.0180 :Form26.DDSpinEdit21
+  0 :Form26.RadioGroup2.ItemIndex
+  30.0000 :Form3.DDSpinEdit23
+   9.0000 :Form3.DDSpinEdit28
+  0 :Form25.RadioGroup1.ItemIndex
+  20.0000 :Form3.DDSpinEdit29
+  0 Form3.CheckBox10
+   6.0000 :Form3.DDSpinEdit30
+  0 Form3.ComboBox4
+  2 Form3.ComboBox5
+ -35.0000 :Form4.DDSpinEdit100
+  9 Form4.ComboBox8
+  5 Form4.ComboBox9
+IID1 and IID2, U=0.04, fixed VL
+   0.3000 :Form4.DDSpinEdit101
+  1 Form3.CheckBox11
+   0.0000 :Form15.DDSpinEdit3
+   0.0000 :Form15.DDSpinEdit4
+  1 Form3.CheckBox12
+ 800.0000 :Form30.DDSpinEdit1
+ 800.0000 :Form30.DDSpinEdit2
+ 800.0000 :Form30.DDSpinEdit3
+ 800.0000 :Form30.DDSpinEdit4
+ 250.0000 :Form30.DDSpinEdit5
+ 250.0000 :Form30.DDSpinEdit6
+ 250.0000 :Form30.DDSpinEdit7
+ 250.0000 :Form30.DDSpinEdit8
+ 100.0000 :Form30.DDSpinEdit9
+ 800.0000 :Form30.DDSpinEdit10
+ 800.0000 :Form30.DDSpinEdit11
+ 800.0000 :Form30.DDSpinEdit12
+ 250.0000 :Form30.DDSpinEdit13
+ 250.0000 :Form30.DDSpinEdit14
+ 250.0000 :Form30.DDSpinEdit15
+ 250.0000 :Form30.DDSpinEdit16
+  0 Form11.Visible
+  0 Form30.Visible
+  0 Form31.Visible
+   8.5000 :Form26.DDSpinEdit22
+   5.0000 :Form26.DDSpinEdit23
+  0 :Form4.CheckBox22
+  0 :Form25.CheckBox1
+  1 :Form31.CheckBox1
+  1 :Form31.CheckBox2
+  1 :Form31.CheckBox3
+Synaptic depression
+   0.0400 :DDSpinEdit102
+2000.0000 :DDSpinEdit103
+   0.0400 :DDSpinEdit104
+2000.0000 :DDSpinEdit105
+  0 :Form5.CheckBox1
+  1 :Form5.CheckBox2
+  0 :Form5.CheckBox3
+   0.0000 :DDSpinEdit117
+   3.0000 :Form26.DDSpinEdit24
+   0.0000 :Form26.DDSpinEdit25
+   0.0000 :DDSpinEdit118
+   0.0000 :DDSpinEdit119
+  20.0000 :Form3.DDSpinEdit31
+  0 :CheckBox23
+  0 :Form4.Left
+ 10 :Form4.Top
+   0.0500 :Form26.DDSpinEdit26
+   3.0000 :Form26.DDSpinEdit27
+  1 :Form1.CheckBox8.Checked
+  1 :Form26.RadioGroup3.ItemIndex
+   3.0000 :Form4.DDSpinEdit72
+   0.2000 :Form26.DDSpinEdit28
+  1 :Form26.RadioGroup4.ItemIndex
+   5.0000 :Form26.DDSpinEdit29
