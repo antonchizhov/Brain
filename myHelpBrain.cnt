@@ -1,0 +1,16 @@
+:Base myHelpBrain
+:Title Help content
+1 Description of models
+1 Description of models=Models
+1 Main menu
+2 File=File@myHelpBrain.hlp
+2 Parameters=Parameters@myHelpBrain.hlp
+2 View=View@myHelpBrain.hlp
+2 Run=Run@myHelpBrain.hlp
+2 Help=Help@myHelpBrain.hlp
+1 Buttons
+2 0d=Run@myHelpBrain.hlp
+2 2d=Run@myHelpBrain.hlp
+2 V1-Ring=Run@myHelpBrain.hlp
+1 How to solve the following tasks:
+2 Gratings=Gratings@myHelpBrain.hlp
