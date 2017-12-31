@@ -1,0 +1,120 @@
+{ Uses files:
+}
+
+procedure CommonParameters;
+begin
+MainDir:='E:\Anton\PAPERS\Hippocampus\PouilleScanziani\';
+SpecialCondition:='FixThreshold';
+NSmpls:=1;
+{ Ohm's law }
+HH_type[1]:='Migliore';    HH_order[1]:='2-points';
+HH_type[2]:='Chow';        HH_order[2]:='1-point';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:=50 {pA};
+t_ind:=10 {s};
+Iext:=0 {mkA};
+t_end:=5;
+dt:=0.000025;
+{Noise}
+tauNoise:=0;
+NoiseToSgn:=1;
+Form4.CheckBox7.Checked:=true;
+{ Blockade }
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Clamping }
+IfChangeVrest:=1;
+  if KeepParams=0 then begin
+     {AMPA}
+     alAMPA[1]:=126;            beAMPA[1]:=744;                 {F2A_2001}
+     alAMPA[2]:=635{420};       beAMPA[2]:=5560{400}; {old-F5a_2004} {F4d_2004}
+     {GABA}
+     alGABA[1]:=60{34};        beGABA[1]:=5000{617};            {SupplFb_2004}
+     alGABA[2]:=60;            beGABA[2]:=5000;                 {=SupplFb_2004}
+     VGABA:=-0.077 {V};
+     {Conductances}
+     gAMPA[1]:=0;        gAMPA[2]:=5;
+     gGABA[1]:=5;        gGABA[2]:=0;
+     {----}
+     Square[1]:={2e-4}3.72e-5;
+     Square[2]:=2.8e-5;
+     tau_m[1]:=0.033 {s};
+     tau_m[2]:=0.019 {s};
+     gam[2]:=500 {Hz};
+     sgmAP[1]:=0.4;
+     sgmAP[2]:=0.4;
+     roE:=3.5{1.5};
+
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+  SmplFile[Smpl]:='NoFile'
+end;
+
+procedure ParametersFromFile2;
+begin
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin
+end;
+
+procedure ParametersFromFile5;
+begin
+end;
+
+procedure ParametersFromFile6;
+begin
+end;
+
+procedure ParametersFromFile7;
+begin
+end;
+
+procedure ParametersFromFile8;
+begin
+end;
+
+procedure ParametersFromFile9;
+begin
+end;
+
+procedure ParametersFromFile10;
+begin end;
+
+procedure ParametersFromFile11;
+begin end;
+
+procedure ParametersFromFile12;
+begin end;
+
+procedure ParametersFromFile13;
+begin end;
+
+procedure ParametersFromFile14;
+begin end;
+
+procedure ParametersFromFile15;
+begin end;
+
+procedure ParametersFromFile16;
+begin end;
+
+procedure ParametersFromFile17;
+begin end;
+
+procedure ParametersFromFile18;
+begin end;
+
+procedure ParametersFromFile19;
+begin end;
+
+

@@ -1,0 +1,127 @@
+{ Uses files:
+                 'EPSC_2C.d'
+                 'EPSP_2B.d'
+                 'IPSC_2D.d'
+                 'IPSP_2D.d'
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=4;
+HH_type:='Passive';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+Im:=0;
+t0s:=0.00042+0.0005{s};  ts:=0.001{80e-6}{s};  Iext:=120{mkA};
+t_Exp:=0.0;
+  if KeepParams=0 then begin
+     gAMP3[1]:=1.26;
+     gGAB3[1]:=20.6;
+     gNMD3[1]:=0;
+     gAMPA[1]:=0;
+     gGABA[1]:=0;
+     alAMPA:=460;
+     beAMPA:=460;
+     VAMPA:=0;
+     roE:=3.8;
+//     alGABA:=100;
+//     {AMPA}                     {Hestrin}
+//     gAMPA[1]:=0;
+//     gAMP3[1]:=2.06;
+//     alAMPA:=185;
+//     beAMPA:=185;
+//     VAMPA:=-0.00 {V};
+//     {NMDA}                     {Hestrin}
+//     gNMDA[1]:=0;
+//     gNMD3[1]:=24.5 {mS/cm^2};
+//     alNMDA:=10 {1/s};
+//     beNMDA:=115 {1/s};
+//     VNMDA:=-0.000 {V};
+//     Mg:=1.3 {mM};
+     {GABA}                     {Karnup, dendrite}
+//     gGAB3[1]:=24.5 {mS/cm^2};
+     alGABA:=34.3 {1/s};
+     beGABA:=304 {1/s};
+//     Square[1]:=2.72e-5;
+     tau_m[1]:=0.0214 {s};  tau_m[3]:=tau_m[1];
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+{EPSC at apical dendrite (150 mkm from str.pyr.) of pyramid of CA1
+at Vm=-79 mV. Stimulus: 120mkA, 80mks in 500mkm from rec.electrode
+in str.radiatum, Schaffer colls. [S.Karnup,A.Stelzer]}
+CommonParameters;
+If_I_V_or_p:=1;
+Im:=-109 {pA}; t_Im:=0.2 {s};     if HH_type='Passive' then  Im:=0;
+Vrest[3]:=-0.079;
+IfBlockAMPA:=0;  IfBlockGABA:=0;  IfBlockNMDA:=0;
+I_sc:=1 {pA};
+{ Scale for Simplex }
+  sc_Simplex:=100 {pA};
+  scx_Smpl:=0.001 {s};  scy_Smpl:=-1{pA};
+  t_end:=0.022;
+  dt:=0.000025;
+  SmplFile[Smpl]:='EPSC_2C.d';
+end;
+
+procedure ParametersFromFile2;
+begin
+{EPSP at apical dendrite (150 mkm from str.pyr.) of pyramid of CA1 at Vm=-79 mV}
+{Stimulus: 120mkA, 80mks in 500mkm from rec.electrode in str.radiatum, Schaffer colls.}
+{[S.Karnup,A.Stelzer]}
+CommonParameters;
+If_I_V_or_p:=2;
+Vrest[3]:=-0.079 {V};
+Im:=-109 {pA}; t_Im:=0.2 {s};     if HH_type='Passive' then  Im:=0;
+IfBlockAMPA:=0;  IfBlockGABA:=0;  IfBlockNMDA:=0;  IfBlockGABB:=1;
+V_sc:=1000 {V};
+{ Scale for Simplex }
+  sc_Simplex:=0.005 {V};
+  scx_Smpl:=0.001 {s};  scy_Smpl:=0.001{V};
+  t_end:=0.018;
+  dt:=0.000018;
+  SmplFile[Smpl]:='EPSP_2B.d';
+end;
+
+procedure ParametersFromFile3;
+begin
+{ms, pA}   {the same as IPSP_2B.d; IPSC at apical dendrite (150 mkm from
+str.pyr.) of pyramid of CA1 at Vm=Vrest=-64 mV, with CNQX, D-AP5, saclofen}
+{Stimulus: 120mkA, 80mks in 500mkm from rec.electrode in str.radiatum, Schaffer colls.}
+{[S.Karnup,A.Stelzer]}
+CommonParameters;
+If_I_V_or_p:=1;
+Im:=0;
+Vrest[1]:=-0.064;   Vrest[3]:=Vrest[1];
+IfBlockAMPA:=1;  IfBlockGABA:=0;  IfBlockNMDA:=1;
+I_sc:=1 {pA};
+{ Scale for Simplex }
+  sc_Simplex:=100 {pA};
+  scx_Smpl:=0.001 {s};  scy_Smpl:=-1{pA};
+  t_end:=0.046;
+  dt:=0.000025;
+  SmplFile[Smpl]:='IPSC_2D.d';
+end;
+
+procedure ParametersFromFile4;
+begin
+{ms, mV}   {IPSP at apical dendrite (150 mkm from str.pyr.) of pyramid of CA1
+at Vm=Vrest=-64 mV, with CNQX, D-AP5, saclofen}
+{Stimulus: 120mkA, 80mks in 500mkm from rec.electrode in str.radiatum,
+Schaffer colls.}{[S.Karnup,A.Stelzer]}
+CommonParameters;
+If_I_V_or_p:=2;
+Im:=0;
+Vrest[1]:=-0.064 {V};  Vrest[3]:=Vrest[1];
+IfBlockAMPA:=1;  IfBlockGABA:=0;  IfBlockNMDA:=1;  IfBlockGABB:=1;
+V_sc:=1000 {V};
+{ Scale for Simplex }
+  sc_Simplex:=0.005 {V};
+  scx_Smpl:=0.001 {s};  scy_Smpl:=0.001{V};
+  t_end:=0.046;
+  dt:=0.00003;
+  SmplFile[Smpl]:='IPSP_2D.d';
+end;

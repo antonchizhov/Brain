@@ -1,0 +1,73 @@
+{ Uses files:
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=1;
+{ Ohm's law }
+HH_type:='Passive';    HH_order:='2-points';
+ThrCorrection[1]:=0 {V};
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+I_ind:=30; t_ind:=10.000 {s};  nu_ind:=-30 {Hz};
+Iext:=0 {mkA};
+Qns:=0 {Hz};
+t_Exp:=0.0;
+t_end:=5.000;
+dt:=0.0002;
+{ Plot scales}
+I_sc:=1 {pA};
+{ Blockade }
+IfBlockAMPA:=1;   IfBlockGABA:=1;
+IfBlockNMDA:=1;   IfBlockGABB:=1;  IfBlockK:=0;
+{ Ток К сдвигает резонансную частоту! Для проверки можно увеличить gK,
+  задав, например, IfBlockK:=-4 }
+Square[1]:=2.72e-5;        Square[2]:=2.72e-5;
+ThrCorrection[1]:=-0.003;  ThrCorrection[2]:=-0.003;
+tau_m[1]:=0.022;           tau_m[2]:=0.009;
+Vrest[1]:=-0.06;           Vrest[2]:=-0.06;      Vrest[3]:=-0.06;
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=2;  i3:=1;
+  if KeepParams=0 then begin
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+  SmplFile[Smpl]:='NoFile';
+end;
+
+procedure ParametersFromFile2;
+begin
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin
+end;
+
+procedure ParametersFromFile5;
+begin
+end;
+
+procedure ParametersFromFile6;
+begin
+end;
+
+procedure ParametersFromFile7;
+begin
+end;
+
+procedure ParametersFromFile8;
+begin
+end;
+
+procedure ParametersFromFile9;
+begin
+end;
+

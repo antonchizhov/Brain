@@ -1,0 +1,269 @@
+{ Uses files:
+}
+
+procedure _PSP_CommonParameters;
+begin
+NSmpls:=7;
+Smpl:=0;
+i3:=1;
+NPop:=2;
+{ Ohm's law }
+{HH_type[1]:='Lyle';   HH_order[1]:='1-point';
+                      HH_order[2]:='1-point';}
+NP0[1].HH_type:='Lyle';     NP0[1].HH_order:='2-points';
+NP0[2].HH_type:='Chow';     NP0[2].HH_order:='1-point';
+//Change_HH_type(1);         Wrong!
+//Change_HH_type(2);
+HodgkinPhysParameters(NP0[1]);
+HodgkinPhysParameters(NP0[2]);
+//NP0[1].Square :=0.021{s}/0.001{mF/cm^2}/100{MOhms}/1e3; {cm^2}
+//NP0[2].Square:=NP0[1].Square;
+//NP0[1].Vreset:=NP0[1].Vrest;
+//NP0[2].Vreset:=NP0[1].Vreset;
+//NP0[2].Vrest:=NP0[1].Vrest;
+//NP0[2].Vreset:=NP0[2].Vrest;
+//NP0[2].tau_m:=NP0[1].tau_m;
+//NP0[1].gKM:=0;
+//NP0[1].gAHP:=0;
+R.NP.Vrest:=NP0[1].Vrest+0.010{V};
+NP0[1].ThrShift:=-0.002{V};
+NP0[2].ThrShift:=-0.005{V};
+NP0[3].ThrShift:=-0.005{V};
+{ Input}
+Qns:=20{Hz};
+pext_Iext:=24 {Hz/muA};
+Iext:=4.0{muA};
+t_end:=0.400{s};
+tSt:=10{s};
+tBG:=0.150{s};
+dt:=0.0001;
+Nts[1]:=200;     Nts[2]:=100;
+ts_end[1]:=0.2;  ts_end[2]:=0.05;
+{!!!}
+I_ind:=0;//100{pA};
+t_ind:=1000{ms};
+{ Neuron properties }
+Form4.ComboBox8.ItemIndex:=0;         {'FixThreshold=10mV'}
+Form4.ComboBox9.ItemIndex:=0;         {'FixThreshold=10mV'}
+sgm_V[1]:=0.003;         sgm_V[2]:=0.003;
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=0;
+IfBlockNMDA:=1;   IfBlockGABB:=1;
+{ Synapses }
+{*****************}
+   Form4.gSynC1.Visible:=true;
+   If_Binzegger_V1:=0;
+{*****************}
+gAMP3[1]:=0.03;           gAMP3[2]:=0.02;
+gAMPA[1]:=0.15;           gAMPA[2]:=0.1;
+gGABA[1]:=0.3;            gGABA[2]:=0.2;
+alAMPA[1]:=120; beAMPA[1]:= 600; alAMPA[2]:=120; beAMPA[2]:=600; VAMPA:= 0.000;
+alGABA[1]:= 50; beGABA[1]:=2000; alGABA[2]:= 50; beGABA[2]:=2000; VGABA:=-0.075;
+alNMDA[1]:= 10; beNMDA[1]:=150;  alNMDA[2]:= 10; beNMDA[2]:=150;
+IfInSyn_al_EQ_beta:=0;
+IfSigmoidForPresynRate:=0;
+If_m_saturates:=0;  { 04.05.2009 }
+factorAMPA:=0;//5.5; {15 if DDSpinEdit90 is Enabled}
+factorNMDA:=0;//5.5;
+factorGABA:=0;//6;
+Form4.DDSpinEdit90.Enabled:=false;
+r_axon[1,1]:=0.000100{m}; r_axon[1,2]:=0.000200{m};
+r_axon[2,1]:=0.000200{m}; r_axon[2,2]:=0.000200{m};
+t_axon[1,1]:=0.0002{s};   t_axon[1,2]:=0.0002{s};
+t_axon[2,1]:=0.0002{s};   t_axon[2,2]:=0.0002{s};
+{ Clamping }
+IfChangeVrest:=1; R.NP.If_I_V_or_g:=2;
+  { 2-D ********************************************************** }
+  ni:=23;  nj:=3;
+  R_stim:=2;
+  ni_stim:=2; nj_stim:=2;
+  i_view:=22; j_view:=2;
+  n_Write:=2;
+  Smpl:=0;
+  Form3.DDSpinEdit3.Value:=5; { n_draw }
+  Form3.ComboBox2.ItemIndex:=1;   { Integral with exp }
+  Form3.CheckBox2.Checked:=false;  { PinWheels }
+  Form3.DDSpinEdit16.Value:=0.1000; { Patchy }
+  Form4.CheckBox20.Checked:=false;  { IfNoise }
+  { for PSPs }
+Qns:=0{Hz};
+t_end:=0.120{s};
+NP0[2].HH_order:='2-points';
+HodgkinPhysParameters(NP0[2]);
+gAMP3[2]:=0.058; gAMPA[2]:=0.29; gGABA[2]:=0.3; gNMD3[2]:=0.23; gNMDA[2]:=1.16;
+NP0[1].Vrest:=NP0[1].Vrest-0.005;
+NP0[2].Vrest:=NP0[2].Vrest-0.005;
+R.NP.Vrest:=NP0[1].Vrest+0.010{V};
+NP0[1].ThrShift:=NP0[1].ThrShift+0.010{V};
+NP0[2].ThrShift:=NP0[2].ThrShift+0.010{V};
+Sbipolar_Iext:=0.02 {mm^2/muA};
+T_bipolar:=2;
+IfBlockNMDA:=0;
+r_axon[2,1]:=0.00010{m}; r_axon[2,2]:=0.00010{m};
+Form4.ComboBox8.ItemIndex:=4;         {'VT=VT(t*)'}
+Form4.ComboBox9.ItemIndex:=4;         {'VT=VT(t*)'}
+Nts[1]:=100;     ts_end[1]:=0.1;
+  ni:=35;  nj:=35;
+  ni_stim:=2;   nj_stim:=12;
+  ni_stim2:=30; nj_stim2:=30;
+  i_view:=24; j_view:=12;
+//  rPW:=5;   dx:=0.000050;  dy:=0.000050;
+  Sbipolar_Iext:=0.08 {mm^2/muA};
+  r_axon[2,1]:=0.000050{m}; r_axon[2,2]:=0.000050{m};
+  Form3.CheckBox6.Checked:=false;  { smooth patches }
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=1{Hz};
+  if KeepParams=0 then begin
+     KeepParams:=1;
+  end;
+end;
+
+
+procedure _PSP_ParametersFromFile;
+{ Dong 2004, Fig.1C, IPSC }
+begin
+  Iext:=0.06{muA};
+  R.NP.If_I_V_or_g:=1;
+  R.NP.Vrest:=0;{V}
+  t0s:=0.002;{s}
+  IfBlockAMPA:=0;    IfBlockNMDA:=1;  IfBlockGABA:=0; IfBlockGABB:=1;
+  VGABA:=-0.060;
+  SmplFile[Smpl]:='NoFile';
+  ExpFigureFileName:='E:\Anton\TEXT\V1\PaperOnParameters\data\GABA_AMPA_PSC_Dong2004_F1C.jpg';
+end;
+
+procedure _PSP_ParametersFromFile2;
+{ Dong 2004, Fig.1C, EPSC }
+begin
+  Iext:=0.06{muA};
+  R.NP.If_I_V_or_g:=1;
+  R.NP.Vrest:=-0.060;{V}
+  t0s:=0.002;{s}
+  IfBlockAMPA:=0;    IfBlockNMDA:=1;  IfBlockGABA:=0; IfBlockGABB:=1;
+  VGABA:=-0.060;
+  SmplFile[Smpl]:='NoFile';
+  ExpFigureFileName:='E:\Anton\TEXT\V1\PaperOnParameters\data\GABA_AMPA_PSC_Dong2004_F1C.jpg';
+end;
+
+procedure _PSP_ParametersFromFile3;
+{ Myme 2003, Fig.3A, NMDA-PSC }
+begin
+  Iext:=0.04{muA};
+  R.NP.If_I_V_or_g:=1;
+  R.NP.Vrest:=0.050;{V}
+  IfBlockAMPA:=0;    IfBlockNMDA:=0;  IfBlockGABA:=1; IfBlockGABB:=1;
+  SmplFile[Smpl]:='NoFile';
+  ExpFigureFileName:='E:\Anton\TEXT\V1\PaperOnParameters\data\AMPA_NMDA_PSC_Myme2003_F3.jpg';
+end;
+
+procedure _PSP_ParametersFromFile4;
+{ Myme 2003, Fig.3A, AMPA-PSC }
+begin
+  Iext:=0.04{muA};
+  R.NP.If_I_V_or_g:=1;
+  R.NP.Vrest:=-0.090;{V}
+  IfBlockAMPA:=0;    IfBlockNMDA:=0;  IfBlockGABA:=1; IfBlockGABB:=1;
+  SmplFile[Smpl]:='NoFile';
+  ExpFigureFileName:='E:\Anton\TEXT\V1\PaperOnParameters\data\AMPA_NMDA_PSC_Myme2003_F3.jpg';
+end;
+
+procedure _PSP_ParametersFromFile5;
+begin
+  Iext:=0.1{muA};
+  IfDataStartsFromZero:=0;
+  R.NP.If_I_V_or_g:=2;
+  scy_Smpl:=0.001{mV};
+  R.NP.Vrest:=-0.065;{V}
+  t0s:=0.002;{s}
+  IfBlockAMPA:=0;   IfBlockNMDA:=0;   IfBlockGABA:=1;
+  SmplFile[Smpl]:='Tucker_Fig11G_EPSP.d';
+  ExpFigureFileName:='E:\Anton\TEXT\V1\PaperOnParameters\data\PSP_EPSP_Tucker2003_F11G.jpg';
+end;
+
+procedure _PSP_ParametersFromFile6;
+begin
+  Iext:=0.1{muA};
+  IfDataStartsFromZero:=0;
+  R.NP.If_I_V_or_g:=2;
+  scy_Smpl:=0.001{mV};
+  R.NP.Vrest:=-0.065;{V}
+  t0s:=0.002;{s}
+  VGABA:=-0.075;
+  IfBlockAMPA:=0;   IfBlockNMDA:=1;   IfBlockGABA:=0;
+  SmplFile[Smpl]:='Tucker_Fig11G_PSP.d';
+  ExpFigureFileName:='E:\Anton\TEXT\V1\PaperOnParameters\data\PSP_EPSP_Tucker2003_F11G.jpg';
+end;
+
+procedure _PSP_ParametersFromFile7;
+begin
+  Iext:=0.1{mkA};
+  R.NP.If_I_V_or_g:=2;
+  scy_Smpl:=0.001{mV};
+  R.NP.Vrest:=-0.065;{V}
+  t0s:=0.000;{s}
+  VGABA:=-0.075;
+  IfBlockAMPA:=0;   IfBlockNMDA:=1;   IfBlockGABA:=0;
+  SmplFile[Smpl]:='Tucker_Fig11C_PSP.d';
+  ExpFigureFileName:='E:\Anton\TEXT\V1\PaperOnParameters\data\PSP_Tucker2003_F11ABC.jpg';
+end;
+
+procedure _PSP_ParametersFromFile8;
+{ Xiang 1998, Fig.7, IPSC in P }
+begin
+  i3:=1;
+  R.NP.Vrest:=-0.080;{V}
+  VGABA:=-0.075;
+  R.NP.If_I_V_or_g:=1;
+  scy_Smpl:=0.001{mV};
+  IfBlockAMPA:=1;   IfBlockNMDA:=1;   IfBlockGABA:=0;
+  SP_[iOfSyn('GAB3 on P')].gmax:=1;
+  SmplFile[Smpl]:='NoFile';
+  ExpFigureFileName:='E:\Anton\TEXT\V1\PaperOnParameters\data\E_I_IPSC_Xiang1998_F7.jpg';
+  t_end:=0.260{s};
+end;
+
+procedure _PSP_ParametersFromFile9;
+{ Xiang 1998, Fig.7, IPSC in I }
+begin
+  i3:=2;
+  R.NP.Vrest:=-0.080;{V}
+  VGABA:=-0.075;
+  R.NP.If_I_V_or_g:=1;
+  scy_Smpl:=0.001{mV};
+  IfBlockAMPA:=1;   IfBlockNMDA:=1;   IfBlockGABA:=0;
+  SP_[iOfSyn('GAB3 on I')].gmax:=0.8;
+  SmplFile[Smpl]:='NoFile';
+  ExpFigureFileName:='E:\Anton\TEXT\V1\PaperOnParameters\data\E_I_IPSC_Xiang1998_F7.jpg';
+  t_end:=0.260{s};
+end;
+
+procedure _PSP_ParametersFromFile10;
+begin end;
+
+procedure _PSP_ParametersFromFile11;
+begin end;
+
+procedure _PSP_ParametersFromFile12;
+begin end;
+
+procedure _PSP_ParametersFromFile13;
+begin end;
+
+procedure _PSP_ParametersFromFile14;
+begin end;
+
+procedure _PSP_ParametersFromFile15;
+begin end;
+
+procedure _PSP_ParametersFromFile16;
+begin end;
+
+procedure _PSP_ParametersFromFile17;
+begin end;
+
+procedure _PSP_ParametersFromFile18;
+begin end;
+
+procedure _PSP_ParametersFromFile19;
+begin end;
+

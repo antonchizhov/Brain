@@ -1,0 +1,336 @@
+#!MC 900
+$!VarSet |LFDSFN1| = '"Ring(t,x).dat"'
+$!VarSet |LFDSVL1| = '"V1" "V2" "V3" "V4" "V5" "V6" "V7" "V8"'
+$!SETSTYLEBASE FACTORY
+$!PAPER 
+  BACKGROUNDCOLOR = WHITE
+  ISTRANSPARENT = YES
+  ORIENTPORTRAIT = YES
+  SHOWGRID = YES
+  SHOWRULER = YES
+  SHOWPAPER = YES
+  PAPERSIZE = A4
+  PAPERSIZEINFO
+    {
+    A3
+      {
+      WIDTH = 11.693
+      HEIGHT = 16.535
+      }
+    A4
+      {
+      WIDTH = 8.2677
+      HEIGHT = 11.693
+      LEFTHARDCLIPOFFSET = 0.125
+      RIGHTHARDCLIPOFFSET = 0.125
+      TOPHARDCLIPOFFSET = 0.125
+      BOTTOMHARDCLIPOFFSET = 0.125
+      }
+    }
+  RULERSPACING = ONEINCH
+  PAPERGRIDSPACING = HALFINCH
+  REGIONINWORKAREA
+    {
+    X1 = -0.05
+    Y1 = -0.05
+    X2 = 8.318
+    Y2 = 11.74
+    }
+$!COLORMAP 
+  CONTOURCOLORMAP = SMRAINBOW
+$!COLORMAPCONTROL RESETTOFACTORY
+### Frame Number 1 ###
+$!READDATASET  '|LFDSFN1|' 
+  INCLUDETEXT = NO
+  INCLUDEGEOM = NO
+  VARLOADMODE = BYNAME
+  VARNAMELIST = '|LFDSVL1|' 
+$!REMOVEVAR |LFDSVL1|
+$!FRAMELAYOUT 
+  SHOWBORDER = NO
+  ISTRANSPARENT = YES
+  HEADERCOLOR = RED
+  XYPOS
+    {
+    X = 0.125
+    Y = 2.6924
+    }
+  WIDTH = 7.986
+  HEIGHT = 6.7175
+$!THREEDAXIS 
+  ASPECTRATIOLIMIT = 5
+  BOXASPECTRATIOLIMIT = 5
+$!FRAMEMODE  = TWOD
+$!FRAMENAME  = 'Frame 001' 
+$!ACTIVEFIELDZONES  =  [1]
+$!GLOBALCONTOUR 
+  VAR = 3
+  LABELS
+    {
+    AUTOLEVELSKIP = 4
+    }
+  LEGEND
+    {
+    SHOW = YES
+    SHOWHEADER = NO
+    ROWSPACING = 2
+    XYPOS
+      {
+      X = 13.276
+      Y = 86.355
+      }
+    ISVERTICAL = NO
+    TEXTSHAPE
+      {
+      HEIGHT = 4
+      }
+    BOX
+      {
+      BOXTYPE = NONE
+      }
+    }
+  COLORCUTOFF
+    {
+    RANGEMIN = 24.0819530487
+    RANGEMAX = 72.2458591461
+    }
+  COLORMAPFILTER
+    {
+    CONTINUOUSCOLOR
+      {
+      CMAX = 96.3278121948
+      }
+    }
+$!CONTOURLEVELS NEW
+  RAWDATA
+33
+0
+2.5
+5
+7.5
+10
+12.5
+15
+17.5
+20
+22.5
+25
+27.5
+30
+32.5
+35
+37.5
+40
+42.5
+45
+47.5
+50
+52.5
+55
+57.5
+60
+62.5
+65
+67.5
+70
+72.5
+75
+77.5
+80
+$!FIELD  [1]
+  MESH
+    {
+    COLOR = RED
+    }
+  CONTOUR
+    {
+    CONTOURTYPE = FLOOD
+    COLOR = WHITE
+    USELIGHTINGEFFECT = YES
+    }
+  VECTOR
+    {
+    COLOR = RED
+    }
+  SCATTER
+    {
+    COLOR = RED
+    }
+  SHADE
+    {
+    COLOR = WHITE
+    }
+  BOUNDARY
+    {
+    COLOR = RED
+    }
+  VOLUMEMODE
+    {
+    VOLUMEOBJECTSTOPLOT
+      {
+      SHOWISOSURFACES = NO
+      SHOWSLICES = NO
+      SHOWSTREAMTRACES = NO
+      }
+    SURFACESTOPLOT = KPLANES
+    POINTSTOPLOT = SURFACESONLY
+    }
+$!TWODAXIS 
+  XVAR = 1
+  YVAR = 2
+$!VIEW FIT
+$!TWODAXIS 
+  GRIDAREA
+    {
+    EXTENTS
+      {
+      X1 = 12.25
+      Y1 = 11.523
+      X2 = 97.213
+      Y2 = 84.193
+      }
+    }
+  DEPXTOYRATIO = 1
+  AXISMODE = INDEPENDENT
+  XDETAIL
+    {
+    AXISPOSITION = 11.53
+    RANGEMIN = 0
+    RANGEMAX = 300
+    GRSPACING = 50
+    TICKLABEL
+      {
+      TEXTSHAPE
+        {
+        HEIGHT = 4
+        }
+      }
+    TITLE
+      {
+      TITLEMODE = USETEXT
+      TEXT = 'Time (ms)' 
+      TEXTSHAPE
+        {
+        HEIGHT = 5
+        }
+      OFFSET = 6
+      }
+    }
+  YDETAIL
+    {
+    AUTOGRID = NO
+    AXISPOSITION = 12.25
+    RANGEMIN = 0
+    RANGEMAX = 360
+    GRSPACING = 60
+    TICKLABEL
+      {
+      TEXTSHAPE
+        {
+        HEIGHT = 4
+        }
+      }
+    TITLE
+      {
+      TITLEMODE = USETEXT
+      TEXT = 'Orientation (deg)' 
+      TEXTSHAPE
+        {
+        HEIGHT = 5
+        }
+      OFFSET = 9
+      }
+    }
+$!GLOBALISOSURFACE 
+  ISOVALUE1 = 24.0819530487
+  ISOVALUE2 = 48.1639060974
+  ISOVALUE3 = 72.2458591461
+$!FIELDLAYERS 
+  SHOWMESH = NO
+  SHOWCONTOUR = YES
+$!ATTACHTEXT 
+  XYPOS
+    {
+    X = 79.6835071508
+    Y = 91.6571713824
+    }
+  TEXTSHAPE
+    {
+    SIZEUNITS = FRAME
+    HEIGHT = 5
+    }
+  TEXT = 'Hz' 
+$!ATTACHGEOM 
+  XYZPOS
+    {
+    X = 100.080996009
+    Y = 1.23339255915
+    }
+  LINETHICKNESS = 0.4
+  RAWDATA
+1
+2
+0 0 
+0 358.016113281 
+$!ATTACHGEOM 
+  XYZPOS
+    {
+    X = -25.2500028735
+    Y = 374.830491449
+    }
+  GEOMTYPE = RECTANGLE
+  RAWDATA
+20.6950263977 -42.8847732544 
+$!ATTACHGEOM 
+  XYZPOS
+    {
+    X = -26.7642730466
+    Y = 370.626102014
+    }
+  GEOMTYPE = RECTANGLE
+  RAWDATA
+25.7425937653 -22.7037029266 
+### Frame Number 2 ###
+$!CREATENEWFRAME 
+$!FRAMELAYOUT 
+  SHOWBORDER = NO
+  HEADERCOLOR = GREEN
+  XYPOS
+    {
+    X = 0.49795
+    Y = 3.5873
+    }
+  WIDTH = 0.53656
+  HEIGHT = 5.1653
+$!FRAMENAME  = 'Frame 002' 
+$!SKETCHAXIS 
+  DEPXTOYRATIO = 1
+  XDETAIL
+    {
+    RANGEMIN = 0
+    RANGEMAX = 1
+    GRSPACING = 0.5
+    }
+  YDETAIL
+    {
+    AUTOGRID = NO
+    RANGEMIN = 0
+    RANGEMAX = 9.62661508704
+    GRSPACING = 60
+    }
+$!ATTACHTEXT 
+  XYPOS
+    {
+    X = 25.5319148935
+    Y = 1.08167770419
+    }
+  TEXTSHAPE
+    {
+    FONT = HELV
+    SIZEUNITS = FRAME
+    HEIGHT = 5
+    }
+  LINESPACING = 1.04
+  TEXT = '90\n\n\n60\n\n\n30\n\n\n0\n\n\n-30\n\n\n-60\n\n\n-90' 
+$!REMOVEVAR |LFDSFN1|
+$!SETSTYLEBASE CONFIG

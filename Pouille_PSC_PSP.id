@@ -1,0 +1,199 @@
+{ Uses files:
+Pouille_PSC_F2a_2004.d
+Pouille_PSP_F2a_2004.d
+Pouille_PSPdend_F2a_2004.d
+Pouille_PSC_F2c_2004.d
+Pouille_PSP_F2c_2004.d
+Pouille_PSPdend_F2c_2004.d
+}
+
+procedure _Pou_CommonParameters;
+begin
+MainDir:='E:\Anton\Brain\Exp&Mod\PouilleScanziani\';
+NSmpls:=8;
+{ Ohm's law }
+NP0[1].HH_type:='Migliore';    NP0[1].HH_order:='2-points';
+HodgkinPhysParameters(NP0[1]);
+     NP0[1].tau_m0:=0.033;
+     NP0[1].ro:=3.5;
+     R.NP.Square:=2e-4;
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+Form4.CheckBox11.Checked:=false; { Background }
+Form4.CheckBox20.Checked:=false; { IfNoise }
+//Form4.CheckBox17.Checked:=true;  { Current from file }
+IfExtracellOrThalamOrVisualOrLGN_Stimul:=2;    { Thalamic stimulation }
+I_ind:=0;
+t0s:=0.000{s};  tSt:=0.001{80e-6}{s};
+t_Exp:=0.0;
+t_end:=0.178;
+dt:=0.000025;
+{ Plot scales}
+//AxisI_Min:=-50;   AxisI_Max:= 50;
+//AxisV_Min:= -4;    AxisV_Max:=  4;
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};
+{ Blockade }
+IfBlockNMDA:=1;   IfBlockGABB:=1;   IfBlockK:=1;
+{ Clamping }
+i3:=1;
+IfChangeVrest:=1;
+{ Synapses }
+{*****************}
+   Form4.gSynC1.Visible:=true;
+   If_Binzegger_V1:=0;
+{*****************}
+  if KeepParams=0 then begin
+     {AMPA}
+     alAMPA[1]:=82;        beAMPA[1]:=102;  {not AMPA but any negative current at dendrite}
+     VAMPA:=VGABA;                          {!!!}
+     {GABA}
+     alGABA[1]:=84;        beGABA[1]:=535;
+     {Conductances}
+     gAMP3[1]:=3;
+     gGAB3[1]:=1;
+     gAMPA[1]:=0;
+     gGABA[1]:=0;
+
+     {----}
+     Iext:=3 {mkA};
+     shift_Smp:=2 {ms};
+     KeepParams:=1;
+  end;
+end;
+
+procedure _Pou_ParametersFromFile;
+begin
+{ IPSC at soma at Vh=-62mV [CA1, Pouille F2a 2004] }
+  { Clamping }
+  R.NP.If_I_V_or_g:=1;  scy_Smpl:=-1{pA};
+  R.NP.Vrest:=-0.062{V};
+  IfBlockAMPA:=1;   IfBlockGABA:=0;
+  shift_Smp:=8.3 {ms};
+  SmplFile[Smpl]:='Pouille_PSC_F2a_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure _Pou_ParametersFromFile2;
+begin
+{ IPSP at soma at Vh=-61mV [CA1, Pouille F2a 2004] }
+  { Clamping }
+  R.NP.If_I_V_or_g:=2;  scy_Smpl:=0.001{mV};
+  R.NP.Vrest:=-0.061{V};
+  IfBlockAMPA:=1;   IfBlockGABA:=0;
+  shift_Smp:=7 {ms};
+  SmplFile[Smpl]:='Pouille_PSP_F2a_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure _Pou_ParametersFromFile3;
+begin
+{ IPSP at dendrite at Vh=-61mV [CA1, Pouille F2a 2004] }
+  { Clamping }
+  R.NP.If_I_V_or_g:=4;  scy_Smpl:=0.001{mV};
+  R.NP.Vrest:=-0.061{V};
+  IfBlockAMPA:=1;   IfBlockGABA:=0;
+  shift_Smp:=7 {ms};
+  SmplFile[Smpl]:='Pouille_PSPdend_F2a_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure _Pou_ParametersFromFile4;
+begin
+{ PSC at soma at Vh=-62mV but injected in dendrite [CA1, Pouille F2a 2004] }
+  { Clamping }
+  R.NP.If_I_V_or_g:=1;  scy_Smpl:=-1{pA};
+  R.NP.Vrest:=-0.062{V};
+  IfBlockAMPA:=0;   IfBlockGABA:=1;
+  shift_Smp:=0 {ms};
+  R.NP.Square:=0.78e-4;
+  SmplFile[Smpl]:='Pouille_PSC_F2c_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure _Pou_ParametersFromFile5;
+begin
+{ PSP at soma at Vh=-61mV but injected in dendrite [CA1, Pouille F2c 2004] }
+  { Clamping }
+  R.NP.If_I_V_or_g:=2;  scy_Smpl:=0.001{mV};
+  R.NP.Vrest:=-0.061{V};
+  IfBlockAMPA:=0;   IfBlockGABA:=1;
+  shift_Smp:=0 {ms};
+  R.NP.Square:=0.78e-4;
+  SmplFile[Smpl]:='Pouille_PSP_F2c_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure _Pou_ParametersFromFile6;
+begin
+{ PSP at dendrite at Vh=-61mV but injected in dendrite [CA1, Pouille F2c 2004] }
+  { Clamping }
+  R.NP.If_I_V_or_g:=4;  scy_Smpl:=0.001{mV};
+  R.NP.Vrest:=-0.061{V};
+  IfBlockAMPA:=0;   IfBlockGABA:=1;
+  shift_Smp:=0 {ms};
+  R.NP.Square:=0.78e-4;
+  SmplFile[Smpl]:='Pouille_PSPdend_F2c_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure _Pou_ParametersFromFile7;
+begin
+{ IPSP at dendrite at Vh=-62mV with somatic V-clamp [CA1, Pouille F2a 2004] }
+  { Clamping }
+  R.NP.If_I_V_or_g:=5;  scy_Smpl:=0.001{mV};
+  R.NP.Vrest:=-0.062{V};
+  IfBlockAMPA:=1;   IfBlockGABA:=0;
+  shift_Smp:=7 {ms};
+  SmplFile[Smpl]:='Pouille_PSPdendVC_F2a_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure _Pou_ParametersFromFile8;
+begin
+{ PSP at dendrite at Vh=-62mV  with somatic V-clamp [CA1, Pouille F2c 2004] }
+  { Clamping }
+  R.NP.If_I_V_or_g:=5;  scy_Smpl:=0.001{mV};
+  R.NP.Vrest:=-0.062{V};
+  IfBlockAMPA:=0;   IfBlockGABA:=1;
+  shift_Smp:=0 {ms};
+  R.NP.Square:=0.78e-4;
+  SmplFile[Smpl]:='Pouille_PSPdendVC_F2c_2004.d';
+  CorrespondParametersToTheForm;
+end;
+
+procedure _Pou_ParametersFromFile9;
+begin
+end;
+
+procedure _Pou_ParametersFromFile10;
+begin end;
+
+procedure _Pou_ParametersFromFile11;
+begin end;
+
+procedure _Pou_ParametersFromFile12;
+begin end;
+
+procedure _Pou_ParametersFromFile13;
+begin end;
+
+procedure _Pou_ParametersFromFile14;
+begin end;
+
+procedure _Pou_ParametersFromFile15;
+begin end;
+
+procedure _Pou_ParametersFromFile16;
+begin end;
+
+procedure _Pou_ParametersFromFile17;
+begin end;
+
+procedure _Pou_ParametersFromFile18;
+begin end;
+
+procedure _Pou_ParametersFromFile19;
+begin end;
+

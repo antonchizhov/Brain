@@ -1,0 +1,212 @@
+{ Uses files:
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=7;
+Smpl:=0;
+i3:=1;
+NPop:=2;
+{ Ohm's law }
+{HH_type[1]:='Lyle';   HH_order[1]:='1-point';
+                      HH_order[2]:='1-point';}
+HH_type[1]:='Passive';  HH_order[1]:='1-point';
+HH_type[2]:='Passive';  HH_order[2]:='1-point';
+Change_HH_type;
+HodgkinPhysParameters;
+Square[1] :=0.021{s}/0.001{mF/cm^2}/100{MOhms}/1e3; {cm^2}    Square[2]:=Square[1];
+Vreset[1]:=Vrest[1];
+Vreset[2]:=Vreset[1];
+Vrest[2]:=Vrest[1];
+tau_m[2]:=tau_m[1];
+ThrCorrection[1]:=-0.00;{V}
+ThrCorrection[2]:=-0.00;{V}
+{ Input}
+Qns:=50*0{Hz};
+pext_Iext:=24 {Hz/muA};
+Iext:=1.0{muA};
+t_end:=0.250;
+dt:=0.0001;
+Nts:=100;
+ts_end:=0.05;
+{!!!}
+I_ind:=0;//100{pA};
+t_ind:=1000{ms};
+{ Neuron properties }
+Form4.SpecCond.ItemIndex:=0; {Form4.SpecCond.Items[0]='FixThreshold=10mV'}
+sgm_V[1]:=0.002;         sgm_V[2]:=0.002;
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=0;
+IfBlockNMDA:=0;   IfBlockGABB:=1;
+{ Synapses }
+{*****************}
+   Form4.gSynC1.Visible:=true;
+   If_Binzegger_V1:=0;
+{*****************}
+gAMP3[1]:=0.04;           gAMP3[2]:=0.02;
+gAMPA[1]:=0.05;           gAMPA[2]:=0.05;
+gGABA[1]:=0.3;            gGABA[2]:=0.2;
+alAMPA[1]:=120; beAMPA[1]:= 600; alAMPA[2]:=120; beAMPA[2]:=600; VAMPA:= 0.000;
+alGABA[1]:= 50; beGABA[1]:=2000; alGABA[2]:= 50; beGABA[2]:=2000; VGABA:=-0.075;
+IfInSyn_al_EQ_beta:=0;
+IfSigmoidForPresynRate:=0;
+If_m_saturates:=1;
+factorI:=0;//5.5; {15 if DDSpinEdit90 is Enabled}
+factorE:=0;//6;
+Form4.DDSpinEdit90.Enabled:=false;
+r_axon[1,1]:=0.000040{m}; r_axon[1,2]:=0.000800{m};
+r_axon[2,1]:=0.000800{m}; r_axon[2,2]:=0.000800{m};
+t_axon[1,1]:=0.0002{s};   t_axon[1,2]:=0.0002{s};
+t_axon[2,1]:=0.0002{s};   t_axon[2,2]:=0.0002{s};
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=2;
+  { 2-D ********************************************************** }
+  ni:=23;  nj:=23;
+  R_stim:=4;
+  ni_stim:=1;
+  i_view:=11; j_view:=1;
+  n_Write:=2;
+  Smpl:=0;
+  Form3.DDSpinEdit3.Value:=2; { n_draw }
+  Form3.ComboBox2.ItemIndex:=1;   { Integral with exp }
+  Form3.CheckBox2.Checked:=true;  { PinWheels }
+{ Samples - experimental curves }
+scx_Smpl:=0.001 {s};  scy_Smpl:=1{Hz};
+  if KeepParams=0 then begin
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+  If_I_V_or_p:=2;
+  scy_Smpl:=-1{pA};
+  Vrest[3]:=-0.005;{V}
+  t0s:=0.002;{s}
+  IfBlockAMPA:=1;    IfBlockNMDA:=1;  IfBlockGABA:=0;
+  VGABA:=-0.050;
+  SmplFile[Smpl]:='V1_Varela_IPSC.d';
+  SP_[iOfSyn('GAB3 on P23')].gmax:=0.3;//4.6;
+end;
+
+procedure ParametersFromFile2;
+begin
+  If_I_V_or_p:=1;
+  scy_Smpl:=-1{pA};
+  Vrest[3]:=-0.075;{V}
+  t0s:=0.002;{s}
+  IfBlockAMPA:=0;   IfBlockNMDA:=1;   IfBlockGABA:=1;
+  VGABA:=0.005;
+  SmplFile[Smpl]:='V1_Varela_EPSC.d';
+//  SP_[iOfSyn('AMP3 on P23')].gmax:=0.05;//75;
+end;
+
+procedure ParametersFromFile3;
+begin
+  Iext:=7{mkA};
+  If_I_V_or_p:=2;
+  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.064;{V}
+  t0s:=0.000;{s}
+  VGABA:=-0.075;
+  IfBlockAMPA:=0;   IfBlockNMDA:=1;   IfBlockGABA:=0;
+  SmplFile[Smpl]:='Tucker_Fig11A_PSP.d';
+  SP_[iOfSyn('GAB3 on P23')].gmax:=0;
+end;
+
+procedure ParametersFromFile4;
+begin
+  Iext:=12{mkA};
+  If_I_V_or_p:=2;
+  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.064;{V}
+  t0s:=0.000;{s}
+  VGABA:=-0.075;
+  IfBlockAMPA:=0;   IfBlockNMDA:=1;   IfBlockGABA:=0;
+  SmplFile[Smpl]:='Tucker_Fig11B_PSP.d';
+  SP_[iOfSyn('GAB3 on P23')].gmax:=0;
+end;
+
+procedure ParametersFromFile5;
+begin
+  Iext:=40{mkA};
+  If_I_V_or_p:=2;
+  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.064;{V}
+  t0s:=0.000;{s}
+  VGABA:=-0.075;
+  IfBlockAMPA:=0;   IfBlockNMDA:=1;   IfBlockGABA:=0;
+  SmplFile[Smpl]:='Tucker_Fig11C_PSP.d';
+  SP_[iOfSyn('GAB3 on P23')].gmax:=0;
+  SP_[iOfSyn('AMP3 on I23')].gmax:=0.3;
+  SP_[iOfSyn('GAB3 on I23')].gmax:=0;
+  SP_[iOfSyn('GABA on P23 de 23')].gmax:=0.4;
+  SP_[iOfSyn('GABA on I23 de 23')].gmax:=0.4;
+end;
+
+procedure ParametersFromFile6;
+begin
+  Iext:=20{mkA};
+  IfDataStartsFromZero:=0;
+  If_I_V_or_p:=2;
+  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.065;{V}
+  t0s:=0.002;{s}
+  VGABA:=-0.075;
+  IfBlockAMPA:=0;   IfBlockNMDA:=1;   IfBlockGABA:=1;
+  SmplFile[Smpl]:='Tucker_Fig11G_EPSP.d';
+  SP_[iOfSyn('GAB3 on P23')].gmax:=0;
+end;
+
+procedure ParametersFromFile7;
+begin
+  Iext:=20{mkA};
+  IfDataStartsFromZero:=0;
+  If_I_V_or_p:=2;
+  scy_Smpl:=0.001{mV};
+  Vrest[3]:=-0.065;{V}
+  t0s:=0.002;{s}
+  VGABA:=-0.075;
+  IfBlockAMPA:=0;   IfBlockNMDA:=1;   IfBlockGABA:=0;
+  SmplFile[Smpl]:='Tucker_Fig11G_PSP.d';
+  SP_[iOfSyn('GAB3 on P23')].gmax:=0;
+end;
+
+procedure ParametersFromFile8;
+begin
+end;
+
+procedure ParametersFromFile9;
+begin
+end;
+
+procedure ParametersFromFile10;
+begin end;
+
+procedure ParametersFromFile11;
+begin end;
+
+procedure ParametersFromFile12;
+begin end;
+
+procedure ParametersFromFile13;
+begin end;
+
+procedure ParametersFromFile14;
+begin end;
+
+procedure ParametersFromFile15;
+begin end;
+
+procedure ParametersFromFile16;
+begin end;
+
+procedure ParametersFromFile17;
+begin end;
+
+procedure ParametersFromFile18;
+begin end;
+
+procedure ParametersFromFile19;
+begin end;
+

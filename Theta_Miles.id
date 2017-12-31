@@ -1,0 +1,113 @@
+{ Uses files:
+}
+
+procedure CommonParameters;
+begin
+NSmpls:=1;
+{ Ohm's law }
+HH_type[1]:='Passive';     HH_order[1]:='2-points';
+HH_type[2]:='Chow';        HH_order[2]:='1-point';
+{ synaptic currents }
+IfInSyn_al_EQ_beta:=0;
+{ Input}
+Iext:=10 {mkA};
+ts:=10 {s};
+t_end:=5.000;
+dt:=0.00015;
+ts_end:=0.080;
+{ Plot scales}
+I_sc:=1 {pA};
+PlotWindow:=200 {ms};
+{ Samples - experimental curves }
+sc_Simplex:=70 {pA};
+scx_Smpl:=0.001 {s}; shift_Smp:=0 {ms};
+{ Blockade }
+IfBlockAMPA:=0;   IfBlockGABA:=1;
+IfBlockNMDA:=1;   IfBlockGABB:=0;
+{ Noise }
+NoiseToSgn:=0.5;
+I_ind:=0 {pA};
+tauNoise:=0.005 {s};
+{ Clamping }
+IfChangeVrest:=1; If_I_V_or_p:=2;
+  if KeepParams=0 then begin
+     Square[1]:=3.72e-5;     Square[2]:=2e-5;
+     sgmAP[1]:=0.4;          sgmAP[2]:=0.4;
+     gAHP[1]:=0.0; {!}
+     gAMP3[1]:=0.2;  gAMP3[2]:=0;
+     gAMPA[1]:=2;    gAMPA[2]:=2;
+     gGABB[1]:=10;   gGABA[2]:=0;
+     alAMPA[1]:=300; beAMPA[1]:=300;
+     alAMPA[2]:=300; beAMPA[2]:=300;
+     alGABB[1]:=8;   beGABB[1]:=8;
+     KeepParams:=1;
+  end;
+end;
+
+procedure ParametersFromFile;
+begin
+  SmplFile[Smpl]:='NoFile'
+end;
+
+procedure ParametersFromFile2;
+begin
+end;
+
+procedure ParametersFromFile3;
+begin
+end;
+
+procedure ParametersFromFile4;
+begin
+end;
+
+procedure ParametersFromFile5;
+begin
+end;
+
+procedure ParametersFromFile6;
+begin
+end;
+
+procedure ParametersFromFile7;
+begin
+end;
+
+procedure ParametersFromFile8;
+begin
+end;
+
+procedure ParametersFromFile9;
+begin
+end;
+
+procedure ParametersFromFile10;
+begin end;
+
+procedure ParametersFromFile11;
+begin end;
+
+procedure ParametersFromFile12;
+begin end;
+
+procedure ParametersFromFile13;
+begin end;
+
+procedure ParametersFromFile14;
+begin end;
+
+procedure ParametersFromFile15;
+begin end;
+
+procedure ParametersFromFile16;
+begin end;
+
+procedure ParametersFromFile17;
+begin end;
+
+procedure ParametersFromFile18;
+begin end;
+
+procedure ParametersFromFile19;
+begin end;
+
